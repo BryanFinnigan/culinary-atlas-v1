@@ -1,10 +1,9 @@
 "use client";
 
-import { useMemo, useState } from "react";
-import CountryPanel from "@/components/CountryPanel";
-import SearchBar from "@/components/SearchBar";
-import WorldMap from "@/components/WorldMap";
-import cuisines from "@/data/cuisines.json";
+import CountryPanel from "../components/CountryPanel";
+import SearchBar from "../components/SearchBar";
+import WorldMap from "../components/WorldMap";
+import cuisines from "../data/cuisines.json";
 
 type CuisineMap = typeof cuisines;
 type CountryName = keyof CuisineMap;
