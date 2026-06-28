@@ -1,0 +1,54 @@
+{
+  "Japan": {
+    "region": "East Asia",
+    "cuisineSummary": "Japanese cuisine balances seasonality, craftsmanship, and respect for ingredients with playful everyday food culture. From ramen and rice bowls to matcha and beautifully packaged snacks, it rewards curiosity with precision, comfort, and umami.",
+    "flavorProfile": ["Umami-rich", "Savory", "Subtly sweet", "Fermented", "Clean", "Seasonal"],
+    "staples": ["Rice", "Soy sauce", "Miso", "Dashi", "Seaweed", "Noodles", "Tofu"],
+    "signatureDishes": ["Sushi", "Ramen", "Tempura", "Donburi", "Curry rice", "Yakitori"],
+    "popularBeverages": ["Green tea", "Matcha", "Sake", "Canned coffee", "Ramune"],
+    "snackCulture": "Seasonal limited editions, regional specialties, convenience-store creativity, and sweet-savory flavor experimentation.",
+    "diningTraditions": "Seasonal appreciation, careful presentation, shared dishes with individual portions, and hospitality rituals.",
+    "beginnerFoods": ["Miso soup", "Gyoza", "Chicken katsu", "Onigiri", "Mild curry rice"],
+    "premiumFoods": ["High-grade wagyu", "Omakase sushi", "Artisan sake", "Kaiseki", "Handcrafted wagashi"],
+    "exportFriendlyProducts": ["Furikake", "Instant ramen", "Matcha powder", "Rice crackers", "Curry blocks", "Mochi"]
+  },
+  "South Korea": {
+    "region": "East Asia",
+    "cuisineSummary": "Korean cuisine is bold, communal, and full of contrast, where fermented depth, spicy heat, grilled comfort, and refreshing side dishes often meet at one table.",
+    "flavorProfile": ["Spicy", "Savory", "Fermented", "Garlicky", "Tangy", "Smoky"],
+    "staples": ["Rice", "Gochujang", "Kimchi", "Sesame oil", "Soy sauce", "Noodles", "Garlic"],
+    "signatureDishes": ["Bibimbap", "Bulgogi", "Kimchi jjigae", "Japchae", "Tteokbokki", "Korean fried chicken"],
+    "popularBeverages": ["Soju", "Makgeolli", "Barley tea", "Banana milk", "Yuja tea"],
+    "snackCulture": "Convenience-store snacks, seaweed crisps, spicy noodles, sweet drinks, and limited-edition treats drive discovery.",
+    "diningTraditions": "Shared plates, table grilling, banchan side dishes, communal meals, and celebratory drinking rituals.",
+    "beginnerFoods": ["Kimbap", "Bulgogi", "Mandu", "Japchae", "Korean fried chicken"],
+    "premiumFoods": ["Hanwoo beef", "Premium barbecue", "Temple cuisine", "Artisan rice wines", "Luxury fruit"],
+    "exportFriendlyProducts": ["Kimchi", "Gochujang", "Instant noodles", "Roasted seaweed", "Rice cakes", "Yuja tea"]
+  },
+  "India": {
+    "region": "South Asia",
+    "cuisineSummary": "Indian cuisine is vast, vibrant, and deeply regional, built on spices, grains, legumes, breads, curries, grilling, sweets, and centuries of culinary tradition.",
+    "flavorProfile": ["Spicy", "Aromatic", "Tangy", "Savory", "Rich", "Layered"],
+    "staples": ["Rice", "Lentils", "Wheat", "Spices", "Vegetables", "Paneer", "Yogurt"],
+    "signatureDishes": ["Biryani", "Dal", "Butter chicken", "Dosa", "Samosa", "Tandoori dishes"],
+    "popularBeverages": ["Chai", "Lassi", "Coffee", "Fruit drinks", "Sugarcane juice"],
+    "snackCulture": "Chaat, samosas, sweets, fried snacks, savory mixes, and regional packaged snacks make exploration easy.",
+    "diningTraditions": "Family feasts, festival foods, thali dining, street-food culture, and region-specific hospitality.",
+    "beginnerFoods": ["Butter chicken", "Naan", "Biryani", "Dal", "Samosas"],
+    "premiumFoods": ["Celebratory biryanis", "Regional tasting menus", "Luxury sweets", "Fine dining thalis"],
+    "exportFriendlyProducts": ["Spice blends", "Teas", "Sauces", "Snacks", "Sweets", "Ready meals"]
+  },
+  "Morocco": {
+    "region": "North Africa",
+    "cuisineSummary": "Moroccan cuisine is fragrant, colorful, and layered, combining slow cooking, warm spices, preserved lemons, olives, couscous, mint tea, and generous hospitality.",
+    "flavorProfile": ["Warm-spiced", "Savory", "Sweet-scented", "Tangy", "Aromatic", "Rich"],
+    "staples": ["Couscous", "Lamb", "Chicken", "Olives", "Preserved lemons", "Chickpeas", "Dates"],
+    "signatureDishes": ["Tagine", "Couscous", "Harira", "Pastilla", "Mechoui", "Briouats"],
+    "popularBeverages": ["Mint tea", "Coffee", "Fruit juices", "Orange blossom drinks"],
+    "snackCulture": "Pastries, nuts, date sweets, fried bites, and sweet-savory snacks are common discovery points.",
+    "diningTraditions": "Shared platters, Friday couscous traditions, hospitality feasts, and festive family dining.",
+    "beginnerFoods": ["Chicken tagine", "Couscous", "Grilled skewers", "Mint tea sweets", "Flatbreads"],
+    "premiumFoods": ["Lamb tagines", "Saffron dishes", "Luxury pastries", "Fine olive oils", "Chef-led tasting menus"],
+    "exportFriendlyProducts": ["Spice blends", "Preserved lemons", "Mint tea", "Olives", "Sweets", "Harissa-style sauces"]
+  }
+}
