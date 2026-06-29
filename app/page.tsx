@@ -1,43 +1,87 @@
+"use client";
+
+import { useMemo, useState } from "react";
+import CountryPanel from "@/components/CountryPanel";
+import SearchBar from "@/components/SearchBar";
+import WorldMap from "@/components/WorldMap";
+import cuisines from "@/data/cuisines.json";
+
+type CuisineMap = typeof cuisines;
+type CountryName = keyof CuisineMap;
+
 const featuredRegions = [
   {
-    name: 'Tokyo, Japan',
-    plate: 'Ramen, yakitori, yakitori alleys, seasonal sweets',
-    mood: 'Precise, fast-moving, deeply seasonal',
+    name: "Tokyo, Japan",
+    plate: "Ramen, yakitori, yakitori alleys, seasonal sweets",
+    mood: "Precise, fast-moving, deeply seasonal",
     detail:
-      'Start with a neighborhood noodle counter, browse a department-store food hall, and end the night with yakitori or a quiet cocktail bar.',
+      "Start with a neighborhood noodle counter, browse a department-store food hall, and end the night with yakitori or a quiet cocktail bar.",
   },
   {
-    name: 'Oaxaca, Mexico',
-    plate: 'Mole negro, tlayudas, chocolate, mezcal',
-    mood: 'Smoky, colorful, market-led',
+    name: "Oaxaca, Mexico",
+    plate: "Mole negro, tlayudas, chocolate, mezcal",
+    mood: "Smoky, colorful, market-led",
     detail:
-      'Follow the aroma of toasted chiles through the markets, compare family mole styles, and make time for corn, cacao, and mezcal traditions.',
+      "Follow the aroma of toasted chiles through the markets, compare family mole styles, and make time for corn, cacao, and mezcal traditions.",
   },
   {
-    name: 'Lisbon, Portugal',
-    plate: 'Bacalhau, petiscos, seafood, pastéis de nata',
-    mood: 'Sunny, coastal, relaxed',
+    name: "Lisbon, Portugal",
+    plate: "Bacalhau, petiscos, seafood, pastéis de nata",
+    mood: "Sunny, coastal, relaxed",
     detail:
-      'Pair tiled streets with seafood lunches, custard tarts, and small plates that make an evening feel unhurried.',
+      "Pair tiled streets with seafood lunches, custard tarts, and small plates that make an evening feel unhurried.",
   },
-]
+];
 
 const tripSteps = [
-  'Pick a craving: noodles, spice, seafood, sweets, markets, or street food.',
-  'Choose a destination guide that explains what to order and why it matters.',
-  'Build a flexible route around signature dishes, local neighborhoods, and easy first stops.',
-]
+  "Pick a craving: noodles, spice, seafood, sweets, markets, or street food.",
+  "Choose a destination guide that explains what to order and why it matters.",
+  "Build a flexible route around signature dishes, local neighborhoods, and easy first stops.",
+];
 
 const uxFeatures = [
-  'Clearer landing page copy for first-time visitors',
-  'Destination cards that explain the food, the mood, and where to begin',
-  'Mobile-friendly sections with simple navigation and strong contrast',
-  'Static page structure designed to deploy cleanly on Vercel',
-]
+  "Clearer landing page copy for first-time visitors",
+  "Destination cards that explain the food, the mood, and where to begin",
+  "Mobile-friendly sections with simple navigation and strong contrast",
+  "Static page structure designed to deploy cleanly on Vercel",
+];
 
 export default function Home() {
+  const countryNames = Object.keys(cuisines) as CountryName[];
+  const [selectedCountry, setSelectedCountry] = useState<CountryName>(
+    (countryNames[0] as CountryName) || ("Algeria" as CountryName)
+  );
+  const [search, setSearch] = useState("");
+  const [region, setRegion] = useState("All Regions");
+
+  const regions = useMemo(() => {
+    return Array.from(
+      new Set(countryNames.map((country) => cuisines[country].region))
+    ).sort();
+  }, [countryNames]);
+
+  const visibleCountries = countryNames.filter((country) => {
+    const matchesSearch = country.toLowerCase().includes(search.toLowerCase());
+    const matchesRegion =
+      region === "All Regions" || cuisines[country].region === region;
+    return matchesSearch && matchesRegion;
+  });
+
+  function chooseCountry(country: string) {
+    if (country in cuisines) {
+      setSelectedCountry(country as CountryName);
+    }
+  }
+
+  // Ensure selectedCountry is in visible countries, otherwise use first visible
+  const displayCountry =
+    visibleCountries.includes(selectedCountry) && selectedCountry in cuisines
+      ? selectedCountry
+      : (visibleCountries[0] as CountryName) || ("Algeria" as CountryName);
+
   return (
     <main className="min-h-screen bg-orange-50 text-slate-950">
+      {/* Hero Section */}
       <section className="relative overflow-hidden px-6 py-8 sm:px-10 lg:px-16">
         <div className="absolute inset-0 -z-10 bg-gradient-to-br from-orange-200 via-amber-100 to-white" />
 
@@ -49,6 +93,9 @@ export default function Home() {
           <div className="hidden items-center gap-6 text-sm font-semibold text-slate-600 sm:flex">
             <a className="transition hover:text-slate-950" href="#destinations">
               Destinations
+            </a>
+            <a className="transition hover:text-slate-950" href="#explore">
+              Explore Cuisines
             </a>
             <a className="transition hover:text-slate-950" href="#plan">
               Plan
@@ -74,8 +121,8 @@ export default function Home() {
 
             <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-700 sm:text-xl">
               Culinary Atlas turns food curiosity into practical travel ideas.
-              Browse approachable city snapshots, learn what to order, and
-              build a trip around memorable meals instead of generic checklists.
+              Browse approachable city snapshots, learn what to order, and build
+              a trip around memorable meals instead of generic checklists.
             </p>
 
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
@@ -88,9 +135,9 @@ export default function Home() {
 
               <a
                 className="rounded-full border border-orange-200 bg-white px-6 py-3 text-center font-bold text-slate-900 transition hover:-translate-y-0.5 hover:border-orange-400"
-                href="#plan"
+                href="#explore"
               >
-                See how it works
+                Explore by cuisine
               </a>
             </div>
           </div>
@@ -98,12 +145,10 @@ export default function Home() {
           <aside className="rounded-[2rem] border border-orange-200 bg-white p-5 shadow-2xl shadow-orange-950/10">
             <div className="rounded-[1.5rem] bg-slate-950 p-6 text-white">
               <p className="text-sm font-bold uppercase tracking-[0.18em] text-amber-300">
-                Tonight&apos;s route
+                Tonight's route
               </p>
 
-              <h2 className="mt-4 text-3xl font-black">
-                Market crawl in Oaxaca
-              </h2>
+              <h2 className="mt-4 text-3xl font-black">Market crawl in Oaxaca</h2>
 
               <p className="mt-3 leading-7 text-orange-100">
                 Breakfast tamales, a mid-day tlayuda, chocolate atole, and a
@@ -131,6 +176,7 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Featured Destinations Section */}
       <section id="destinations" className="px-6 py-16 sm:px-10 lg:px-16">
         <div className="mx-auto max-w-7xl">
           <div className="max-w-3xl">
@@ -160,19 +206,84 @@ export default function Home() {
 
                 <h3 className="mt-4 text-2xl font-black">{region.name}</h3>
 
-                <p className="mt-2 font-semibold text-slate-600">
-                  {region.mood}
-                </p>
+                <p className="mt-2 font-semibold text-slate-600">{region.mood}</p>
 
-                <p className="mt-4 leading-7 text-slate-700">
-                  {region.detail}
-                </p>
+                <p className="mt-4 leading-7 text-slate-700">{region.detail}</p>
               </article>
             ))}
           </div>
         </div>
       </section>
 
+      {/* Explore Cuisines by Country Section */}
+      <section
+        id="explore"
+        className="bg-slate-50 px-6 py-16 sm:px-10 lg:px-16"
+      >
+        <div className="mx-auto max-w-7xl">
+          <div className="mb-10 max-w-3xl">
+            <p className="font-bold uppercase tracking-[0.2em] text-orange-700">
+              Interactive Explorer
+            </p>
+
+            <h2 className="mt-3 text-4xl font-black tracking-tight sm:text-5xl">
+              Explore cuisines by country
+            </h2>
+
+            <p className="mt-4 text-lg leading-8 text-slate-700">
+              Discover what makes each cuisine unique. Search by name, filter by
+              region, or click on the map to explore flavor profiles, signature
+              dishes, dining traditions, and export-friendly products.
+            </p>
+          </div>
+
+          {/* Search and Filter */}
+          <div className="mb-6 rounded-3xl border border-slate-200 bg-white p-4 shadow-sm backdrop-blur">
+            <SearchBar
+              search={search}
+              setSearch={setSearch}
+              region={region}
+              setRegion={setRegion}
+              regions={regions}
+            />
+
+            {/* Country Pills */}
+            <div className="mt-4 flex flex-wrap gap-2">
+              {visibleCountries.map((country) => (
+                <button
+                  key={country}
+                  onClick={() => setSelectedCountry(country)}
+                  className={`rounded-full px-4 py-2 text-sm font-bold transition ${
+                    selectedCountry === country
+                      ? "bg-orange-600 text-white shadow"
+                      : "bg-white text-slate-700 ring-1 ring-slate-200 hover:bg-orange-50"
+                  }`}
+                >
+                  {country}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          {/* Map and Country Panel Grid */}
+          <div className="grid gap-6 lg:grid-cols-[1.15fr_0.85fr]">
+            <section aria-label="Interactive cuisine map">
+              <WorldMap
+                countries={visibleCountries}
+                selectedCountry={displayCountry}
+                setSelectedCountry={chooseCountry}
+              />
+            </section>
+
+            <CountryPanel
+              country={displayCountry}
+              cuisine={cuisines[displayCountry]}
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* Planning Section */}
       <section id="plan" className="bg-slate-950 px-6 py-16 text-white sm:px-10 lg:px-16">
         <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.8fr_1.2fr]">
           <div>
@@ -192,15 +303,14 @@ export default function Home() {
                   {index + 1}
                 </span>
 
-                <p className="pt-2 text-lg leading-7 text-orange-100">
-                  {step}
-                </p>
+                <p className="pt-2 text-lg leading-7 text-orange-100">{step}</p>
               </li>
             ))}
           </ol>
         </div>
       </section>
 
+      {/* Features Section */}
       <section id="features" className="px-6 py-16 sm:px-10 lg:px-16">
         <div className="mx-auto max-w-7xl rounded-[2rem] border border-orange-200 bg-white p-8 shadow-sm lg:p-10">
           <h2 className="text-3xl font-black tracking-tight sm:text-4xl">
@@ -220,5 +330,5 @@ export default function Home() {
         </div>
       </section>
     </main>
-  )
+  );
 }
