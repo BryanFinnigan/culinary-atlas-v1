@@ -151,8 +151,8 @@ export default function MapExplorer({ countries, selectedCountry, setSelectedCou
         <ComposableMap projection="geoEqualEarth" className="h-auto w-full" style={{ height: "500px" }}>
           <ZoomableGroup zoom={zoom} center={[position.x, position.y]}>
             <Geographies geography={geoUrl}>
-              {({ geographies }: { geographies: any[] }) =>
-                geographies.map((geo: any) => {
+              {(geoData: { geographies: any[] }) =>
+                geoData.geographies.map((geo: any) => {
                   const country = countryNameById[String(geo.id)];
                   const isAvailable = country && countries.includes(country);
                   const isSelected = country === selectedCountry;
