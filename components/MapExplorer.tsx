@@ -151,8 +151,8 @@ export default function MapExplorer({ countries, selectedCountry, setSelectedCou
         <ComposableMap projection="geoEqualEarth" className="h-auto w-full" style={{ height: "500px" }}>
           <ZoomableGroup zoom={zoom} center={[position.x, position.y]}>
             <Geographies geography={geoUrl}>
-              {({ geographies }) =>
-                geographies.map((geo) => {
+              {({ geographies }: { geographies: any[] }) =>
+                geographies.map((geo: any) => {
                   const country = countryNameById[String(geo.id)];
                   const isAvailable = country && countries.includes(country);
                   const isSelected = country === selectedCountry;
@@ -201,6 +201,7 @@ export default function MapExplorer({ countries, selectedCountry, setSelectedCou
             {countries.map((country) => {
               const coordinates = markerCoordinates[country];
               if (!coordinates) return null;
+              const isMarkerSelected = selectedCountry === country;
               return (
                 <Marker
                   key={country}
@@ -209,8 +210,8 @@ export default function MapExplorer({ countries, selectedCountry, setSelectedCou
                   style={{ cursor: "pointer" }}
                 >
                   <circle
-                    r={isSelected ? 6 : 4}
-                    fill={selectedCountry === country ? "#e76f51" : "#14213d"}
+                    r={isMarkerSelected ? 6 : 4}
+                    fill={isMarkerSelected ? "#e76f51" : "#14213d"}
                     stroke="#fff"
                     strokeWidth={2}
                     style={{ transition: "all 0.2s ease" }}
