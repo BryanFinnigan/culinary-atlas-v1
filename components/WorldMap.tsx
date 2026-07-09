@@ -67,6 +67,79 @@ function slugify(value: string) {
     .replace(/(^-|-$)+/g, "");
 }
 
+function WorldSilhouette() {
+  return (
+    <svg
+      className="absolute inset-0 h-full w-full"
+      viewBox="0 0 1000 520"
+      preserveAspectRatio="none"
+      aria-hidden="true"
+    >
+      <defs>
+        <linearGradient id="landGradient" x1="0" x2="1" y1="0" y2="1">
+          <stop offset="0%" stopColor="#fffbeb" />
+          <stop offset="52%" stopColor="#ffffff" />
+          <stop offset="100%" stopColor="#fef3c7" />
+        </linearGradient>
+        <filter id="landShadow" x="-20%" y="-20%" width="140%" height="140%">
+          <feDropShadow dx="0" dy="8" stdDeviation="8" floodColor="#7c2d12" floodOpacity="0.12" />
+        </filter>
+      </defs>
+
+      <rect width="1000" height="520" fill="url(#oceanGrid)" opacity="0" />
+
+      <path
+        d="M54 168 L91 112 L154 91 L231 111 L286 152 L260 208 L219 230 L226 276 L185 313 L135 293 L117 244 L70 228 Z"
+        fill="url(#landGradient)"
+        stroke="#f59e0b"
+        strokeOpacity="0.28"
+        strokeWidth="2"
+        filter="url(#landShadow)"
+      />
+      <path
+        d="M245 294 L306 318 L343 385 L323 476 L278 499 L244 443 L215 388 Z"
+        fill="url(#landGradient)"
+        stroke="#f59e0b"
+        strokeOpacity="0.28"
+        strokeWidth="2"
+        filter="url(#landShadow)"
+      />
+      <path
+        d="M390 129 L455 94 L521 122 L556 164 L523 199 L463 205 L417 185 Z"
+        fill="url(#landGradient)"
+        stroke="#f59e0b"
+        strokeOpacity="0.28"
+        strokeWidth="2"
+        filter="url(#landShadow)"
+      />
+      <path
+        d="M463 217 L549 222 L620 292 L605 386 L555 468 L493 428 L459 338 L424 281 Z"
+        fill="url(#landGradient)"
+        stroke="#f59e0b"
+        strokeOpacity="0.28"
+        strokeWidth="2"
+        filter="url(#landShadow)"
+      />
+      <path
+        d="M565 119 L684 74 L812 112 L913 191 L886 289 L784 309 L703 254 L627 269 L568 214 Z"
+        fill="url(#landGradient)"
+        stroke="#f59e0b"
+        strokeOpacity="0.28"
+        strokeWidth="2"
+        filter="url(#landShadow)"
+      />
+      <path
+        d="M779 371 L865 350 L937 401 L910 467 L820 465 L762 423 Z"
+        fill="url(#landGradient)"
+        stroke="#f59e0b"
+        strokeOpacity="0.28"
+        strokeWidth="2"
+        filter="url(#landShadow)"
+      />
+    </svg>
+  );
+}
+
 export default function WorldMap({
   countries,
   selectedCountry,
@@ -92,7 +165,7 @@ export default function WorldMap({
           </div>
           <Link
             href={`/cuisines/${selectedSlug}`}
-            className="shrink-0 rounded-full bg-amber-300 px-4 py-2 text-sm font-black text-slate-950 transition hover:bg-white"
+            className="shrink-0 rounded-full bg-amber-300 px-4 py-3 text-center text-sm font-black text-slate-950 transition hover:bg-white"
           >
             View cuisine guide
           </Link>
@@ -109,7 +182,7 @@ export default function WorldMap({
               key={country}
               aria-label={`Select ${country} in Cuisine Explorer`}
               onClick={() => setSelectedCountry(country)}
-              className={`shrink-0 rounded-full px-4 py-2 text-sm font-bold transition ${
+              className={`min-h-11 shrink-0 rounded-full px-4 py-2 text-sm font-bold transition ${
                 selectedCountry === country
                   ? "bg-orange-600 text-white shadow"
                   : "bg-white text-slate-700 ring-1 ring-orange-100 hover:bg-orange-100"
@@ -121,22 +194,16 @@ export default function WorldMap({
         </div>
       </div>
 
-      <div className="relative h-[500px] overflow-hidden bg-[radial-gradient(circle_at_20%_20%,rgba(251,191,36,0.35),transparent_28%),radial-gradient(circle_at_78%_34%,rgba(16,185,129,0.22),transparent_30%),linear-gradient(135deg,#fff7ed,#ecfeff_50%,#fef3c7)] sm:h-[520px]">
+      <div className="relative h-[430px] overflow-hidden bg-[radial-gradient(circle_at_20%_20%,rgba(251,191,36,0.28),transparent_28%),radial-gradient(circle_at_78%_34%,rgba(16,185,129,0.18),transparent_30%),linear-gradient(135deg,#ecfeff,#fff7ed_52%,#fef3c7)] sm:h-[520px]">
         <div className="absolute inset-0 opacity-40 [background-image:linear-gradient(rgba(15,23,42,0.08)_1px,transparent_1px),linear-gradient(90deg,rgba(15,23,42,0.08)_1px,transparent_1px)] [background-size:48px_48px]" />
+        <WorldSilhouette />
 
-        <div className="absolute left-[4%] top-[13%] h-[34%] w-[31%] rounded-[55%_45%_60%_40%] bg-white/55 shadow-inner ring-1 ring-white/80" />
-        <div className="absolute left-[20%] top-[49%] h-[39%] w-[21%] rotate-12 rounded-[45%_55%_55%_45%] bg-white/55 shadow-inner ring-1 ring-white/80" />
-        <div className="absolute left-[42%] top-[19%] h-[24%] w-[18%] rounded-[50%_45%_60%_40%] bg-white/55 shadow-inner ring-1 ring-white/80" />
-        <div className="absolute left-[45%] top-[41%] h-[44%] w-[24%] rounded-[45%_55%_48%_52%] bg-white/55 shadow-inner ring-1 ring-white/80" />
-        <div className="absolute left-[62%] top-[22%] h-[45%] w-[29%] rounded-[50%_40%_55%_45%] bg-white/55 shadow-inner ring-1 ring-white/80" />
-        <div className="absolute left-[77%] top-[72%] h-[19%] w-[16%] rotate-12 rounded-[55%_45%_55%_45%] bg-white/55 shadow-inner ring-1 ring-white/80" />
-
-        <svg className="absolute inset-0 h-full w-full opacity-40" aria-hidden="true">
-          <path d="M120 260 C260 180, 360 330, 520 250 S760 150, 910 260" fill="none" stroke="rgb(234 88 12)" strokeWidth="3" strokeDasharray="10 12" />
+        <svg className="absolute inset-0 h-full w-full opacity-45" viewBox="0 0 1000 520" preserveAspectRatio="none" aria-hidden="true">
+          <path d="M105 265 C260 175, 360 330, 520 250 S760 150, 910 260" fill="none" stroke="rgb(234 88 12)" strokeWidth="3" strokeDasharray="10 12" />
           <path d="M190 390 C330 300, 510 420, 680 330 S820 270, 960 350" fill="none" stroke="rgb(15 23 42)" strokeWidth="2" strokeDasharray="6 12" />
         </svg>
 
-        <div className="absolute left-4 right-4 top-4 rounded-3xl border border-white/80 bg-white/85 p-4 shadow-sm backdrop-blur sm:left-6 sm:right-auto sm:max-w-sm">
+        <div className="absolute left-4 right-4 top-4 rounded-3xl border border-white/80 bg-white/90 p-4 shadow-sm backdrop-blur sm:left-6 sm:right-auto sm:max-w-sm">
           <p className="text-xs font-black uppercase tracking-[0.18em] text-orange-700">
             Selected cuisine
           </p>
@@ -158,7 +225,7 @@ export default function WorldMap({
               style={{ left: `${point.x}%`, top: `${point.y}%` }}
             >
               <span
-                className={`flex h-6 w-6 items-center justify-center rounded-full border-2 border-white shadow-lg transition ${
+                className={`flex h-7 w-7 items-center justify-center rounded-full border-2 border-white shadow-lg transition ${
                   isSelected ? "scale-125 bg-orange-600" : "bg-slate-950 hover:bg-orange-500"
                 }`}
               >
@@ -181,25 +248,25 @@ export default function WorldMap({
       <div className="grid gap-3 border-t border-orange-100 bg-white p-4 sm:grid-cols-4">
         <Link
           href={`/cuisines/${selectedSlug}`}
-          className="rounded-2xl bg-slate-950 px-4 py-3 text-center text-sm font-black text-white transition hover:bg-orange-700"
+          className="min-h-12 rounded-2xl bg-slate-950 px-4 py-3 text-center text-sm font-black text-white transition hover:bg-orange-700"
         >
           View cuisine guide
         </Link>
         <a
           href="#products"
-          className="rounded-2xl bg-orange-50 px-4 py-3 text-center text-sm font-black text-slate-800 ring-1 ring-orange-100 transition hover:bg-orange-100"
+          className="min-h-12 rounded-2xl bg-orange-50 px-4 py-3 text-center text-sm font-black text-slate-800 ring-1 ring-orange-100 transition hover:bg-orange-100"
         >
           See products
         </a>
         <a
           href="#explore"
-          className="rounded-2xl bg-orange-50 px-4 py-3 text-center text-sm font-black text-slate-800 ring-1 ring-orange-100 transition hover:bg-orange-100"
+          className="min-h-12 rounded-2xl bg-orange-50 px-4 py-3 text-center text-sm font-black text-slate-800 ring-1 ring-orange-100 transition hover:bg-orange-100"
         >
           Browse beginner foods
         </a>
         <a
           href="#products"
-          className="rounded-2xl bg-orange-50 px-4 py-3 text-center text-sm font-black text-slate-800 ring-1 ring-orange-100 transition hover:bg-orange-100"
+          className="min-h-12 rounded-2xl bg-orange-50 px-4 py-3 text-center text-sm font-black text-slate-800 ring-1 ring-orange-100 transition hover:bg-orange-100"
         >
           Shop pantry staples
         </a>
@@ -216,7 +283,7 @@ export default function WorldMap({
                 key={country}
                 aria-label={`Select ${country} cuisine`}
                 onClick={() => setSelectedCountry(country)}
-                className={`rounded-full px-3 py-1 text-xs font-bold transition ${
+                className={`min-h-9 rounded-full px-3 py-1 text-xs font-bold transition ${
                   selectedCountry === country
                     ? "bg-orange-600 text-white"
                     : "bg-orange-50 text-slate-700 hover:bg-orange-100"
