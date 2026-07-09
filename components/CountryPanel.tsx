@@ -1,3 +1,4 @@
+import Link from "next/link";
 import type { ReactNode } from "react";
 
 type FoodAndCultureNotes = {
@@ -28,6 +29,14 @@ type CountryPanelProps = {
   country: string;
   cuisine: Cuisine;
 };
+
+function slugify(value: string) {
+  return value
+    .toLowerCase()
+    .replace(/&/g, "and")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/(^-|-$)+/g, "");
+}
 
 function ChipList({ items }: { items: string[] }) {
   return (
@@ -69,9 +78,8 @@ function CultureNotes({ notes }: { notes?: FoodAndCultureNotes }) {
   if (entries.length === 0) {
     return (
       <p className="text-slate-700">
-        This page is a starting point. Culinary Atlas avoids ratings and cultural
-        scorecards; future notes will add regional diversity, seasonality,
-        dining customs, historical influences, and modern food context.
+        This page is a starting point. Future notes will add regional diversity,
+        seasonality, dining customs, historical influences, and modern food context.
       </p>
     );
   }
@@ -94,8 +102,10 @@ export default function CountryPanel({
   country,
   cuisine,
 }: CountryPanelProps) {
+  const countrySlug = slugify(country);
+
   return (
-    <article className="rounded-3xl border border-slate-200 bg-white p-6 shadow-xl">
+    <article className="rounded-3xl border border-slate-200 bg-white p-5 shadow-xl sm:p-6">
       <div className="mb-5">
         <p className="text-sm font-semibold uppercase tracking-widest text-yellow-600">
           {cuisine.region}
@@ -104,9 +114,27 @@ export default function CountryPanel({
         <p className="mt-3 text-base leading-7 text-slate-700">
           {cuisine.cuisineSummary}
         </p>
+        <div className="mt-5 grid gap-3 sm:grid-cols-2">
+          <Link
+            href={`/cuisines/${countrySlug}`}
+            className="rounded-2xl bg-slate-950 px-4 py-3 text-center text-sm font-black text-white transition hover:bg-orange-700"
+          >
+            Open full guide
+          </Link>
+          <a
+            href="#products"
+            className="rounded-2xl bg-orange-50 px-4 py-3 text-center text-sm font-black text-slate-800 ring-1 ring-orange-100 transition hover:bg-orange-100"
+          >
+            Shop the flavors
+          </a>
+        </div>
       </div>
 
       <div className="grid gap-4">
+        <DetailRow title="Start With These Foods">
+          <ChipList items={cuisine.beginnerFoods} />
+        </DetailRow>
+
         <DetailRow title="Flavor Profile">
           <ChipList items={cuisine.flavorProfile} />
         </DetailRow>
@@ -133,10 +161,6 @@ export default function CountryPanel({
 
         <DetailRow title="Food & Culture Notes">
           <CultureNotes notes={cuisine.foodAndCultureNotes} />
-        </DetailRow>
-
-        <DetailRow title="Beginner Foods">
-          <ChipList items={cuisine.beginnerFoods} />
         </DetailRow>
 
         <DetailRow title="Premium Foods">
