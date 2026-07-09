@@ -1,0 +1,135 @@
+{
+  "Algeria": {
+    "region": "North Africa",
+    "cuisineSummary": "Algeria cuisine is aromatic and layered, shaped by Amazigh/Berber, Arab, Mediterranean, Ottoman, and regional African influences. This entry is an introduction, not a complete definition of every local food tradition.",
+    "flavorProfile": [
+      "Warm-spiced",
+      "Savory",
+      "Tangy",
+      "Aromatic",
+      "Rich",
+      "Comforting"
+    ],
+    "staples": [
+      "Couscous",
+      "Semolina",
+      "Lamb",
+      "Chickpeas",
+      "Olive oil",
+      "Dates"
+    ],
+    "signatureDishes": [
+      "Couscous dishes",
+      "Soups",
+      "Grilled meats",
+      "Pastries",
+      "Stews"
+    ],
+    "popularBeverages": [
+      "Mint tea",
+      "Coffee",
+      "Fruit juices",
+      "Herbal drinks"
+    ],
+    "snackCulture": "Pastries, nuts, date sweets, fried bites, and savory snacks are common.",
+    "diningTraditions": "Dining is best presented as context rather than judgment: shared meals, hospitality customs, holidays, everyday routines, and regional etiquette may vary within the country.",
+    "beginnerFoods": [
+      "Couscous dishes",
+      "Soups",
+      "Grilled meats",
+      "Couscous",
+      "Semolina"
+    ],
+    "premiumFoods": [
+      "Regional tasting menus",
+      "Artisan specialties",
+      "Premium local ingredients",
+      "Celebration dishes"
+    ],
+    "exportFriendlyProducts": [
+      "Teas",
+      "Coffee",
+      "Spice blends",
+      "Sauces",
+      "Snacks",
+      "Packaged sweets"
+    ],
+    "foodAndCultureNotes": {
+      "regionalDiversity": "Algeria should not be treated as a single uniform cuisine. Regional, urban, rural, coastal, inland, and community traditions may differ in ingredients, techniques, and dining customs.",
+      "seasonality": "Where possible, present seasonal ingredients and food calendars as cultural context rather than as a rating or score. Note that seasonality depends on region, climate, and local availability.",
+      "preservationAndTechnique": "Highlight techniques such as fermentation, drying, smoking, pickling, curing, milling, roasting, or slow cooking when they are relevant. These practices often reflect climate, storage needs, flavor development, and tradition.",
+      "diningCustoms": "Describe hospitality, table customs, family meals, street-food habits, market culture, and holiday foods without implying that one style of eating is more advanced or more sustainable than another.",
+      "historyAndInfluence": "Algeria's food culture reflects geography, agriculture, migration, trade, religion, climate, and everyday household practice. Deeper pages should identify specific communities and regions rather than flattening the cuisine into one style.",
+      "localSpecialties": "Future subpages should highlight regional markets, local specialties, holiday foods, street-food traditions, and community-specific dishes within Algeria.",
+      "modernFoodScene": "Include modern context where relevant: cafés, supermarkets, chef-led restaurants, immigrant communities, convenience foods, online retail, and changing tastes among younger eaters.",
+      "responsibleExplorationNote": "Use this page as a starting point. Avoid reducing a cuisine to a single dish, flavor, or stereotype, and update entries as better regional sources and product data become available."
+    }
+  },
+  "Argentina": {
+    "region": "South America",
+    "cuisineSummary": "Argentina cuisine is regional and generous, shaped by Indigenous traditions, European influence, local produce, grains, grilled foods, seafood, and comfort foods. This entry is an introduction, not a complete definition of every local food tradition.",
+    "flavorProfile": [
+      "Savory",
+      "Fresh",
+      "Hearty",
+      "Herbaceous",
+      "Tangy",
+      "Comforting"
+    ],
+    "staples": [
+      "Rice",
+      "Corn",
+      "Potatoes",
+      "Beans",
+      "Meats",
+      "Local produce"
+    ],
+    "signatureDishes": [
+      "Empanadas",
+      "Grilled meats",
+      "Stews",
+      "Rice dishes",
+      "Regional seafood"
+    ],
+    "popularBeverages": [
+      "Coffee",
+      "Tea",
+      "Fruit juices",
+      "Beer",
+      "Wine"
+    ],
+    "snackCulture": "Street snacks, bakery treats, fried bites, sweets, and regional packaged snacks are common discovery points.",
+    "diningTraditions": "Dining is best presented as context rather than judgment: shared meals, hospitality customs, holidays, everyday routines, and regional etiquette may vary within the country.",
+    "beginnerFoods": [
+      "Empanadas",
+      "Grilled meats",
+      "Stews",
+      "Rice",
+      "Corn"
+    ],
+    "premiumFoods": [
+      "Regional tasting menus",
+      "Artisan specialties",
+      "Premium local ingredients",
+      "Celebration dishes"
+    ],
+    "exportFriendlyProducts": [
+      "Teas",
+      "Coffee",
+      "Spice blends",
+      "Sauces",
+      "Snacks",
+      "Packaged sweets"
+    ],
+    "foodAndCultureNotes": {
+      "regionalDiversity": "Argentina should not be treated as a single uniform cuisine. Regional, urban, rural, coastal, inland, and community traditions may differ in ingredients, techniques, and dining customs.",
+      "seasonality": "Where possible, present seasonal ingredients and food calendars as cultural context rather than as a rating or score. Note that seasonality depends on region, climate, and local availability.",
+      "preservationAndTechnique": "Highlight techniques such as fermentation, drying, smoking, pickling, curing, milling, roasting, or slow cooking when they are relevant. These practices often reflect climate, storage needs, flavor development, and tradition.",
+      "diningCustoms": "Describe hospitality, table customs, family meals, street-food habits, market culture, and holiday foods without implying that one style of eating is more advanced or more sustainable than another.",
+      "historyAndInfluence": "Argentina's food culture reflects geography, agriculture, migration, trade, religion, climate, and everyday household practice. Deeper pages should identify specific communities and regions rather than flattening the cuisine into one style.",
+      "localSpecialties": "Future subpages should highlight regional markets, local specialties, holiday foods, street-food traditions, and community-specific dishes within Argentina.",
+      "modernFoodScene": "Include modern context where relevant: cafés, supermarkets, chef-led restaurants, immigrant communities, convenience foods, online retail, and changing tastes among younger eaters.",
+      "responsibleExplorationNote": "Use this page as a starting point. Avoid reducing a cuisine to a single dish, flavor, or stereotype, and update entries as better regional sources and product data become available."
+    }
+  }
+}
