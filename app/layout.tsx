@@ -1,20 +1,20 @@
-import type { Metadata } from 'next'
-import './globals.css'
+import type { Metadata } from "next";
+import "./globals.css";
 
 export const metadata: Metadata = {
-  title: 'Culinary Atlas | Food-first travel guides',
+  title: "Culinary Atlas | Global Food Discovery & Taste Collections",
   description:
-    'Discover food-first city guides with readable destination cards, practical planning steps, and memorable dishes to build your next trip around.',
-}
+    "Explore world cuisines by country, learn the cultural context behind foods, and discover curated taste collections with practical products to try at home.",
+};
 
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
   return (
     <html lang="en">
       <body>{children}</body>
     </html>
-  )
+  );
 }
