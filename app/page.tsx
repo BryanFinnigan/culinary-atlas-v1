@@ -66,7 +66,7 @@ function ProductCard({ product }: { product: Product }) {
 const discoverySteps = [
   "Explore cuisines by country, region, flavor, and familiar starting points.",
   "Learn what to try first, from iconic dishes to everyday pantry staples.",
-  "Follow curated taste collections when you want to recreate flavors at home.",
+  "Follow taste collections for snacks, sauces, drinks, ingredients, cookbooks, and giftable foods.",
 ];
 
 export default function Home() {
@@ -112,7 +112,7 @@ export default function Home() {
             Culinary Atlas
           </a>
           <div className="hidden items-center gap-6 text-sm font-semibold text-slate-600 sm:flex">
-            <a className="transition hover:text-slate-950" href="#explore">Explore</a>
+            <a className="transition hover:text-slate-950" href="#explore">Cuisine Explorer</a>
             <Link className="transition hover:text-slate-950" href="/cuisines">Cuisines</Link>
             <Link className="transition hover:text-slate-950" href="/regions">Regions</Link>
             <Link className="transition hover:text-slate-950" href="/guides">Guides</Link>
@@ -132,7 +132,7 @@ export default function Home() {
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <a className="rounded-full bg-orange-600 px-6 py-3 text-center font-bold text-white shadow-lg shadow-orange-900/15 transition hover:-translate-y-0.5 hover:bg-orange-700" href="#explore">
-                Explore the map
+                Explore cuisines
               </a>
               <Link className="rounded-full border border-orange-200 bg-white px-6 py-3 text-center font-bold text-slate-900 transition hover:-translate-y-0.5 hover:border-orange-400" href="/cuisines">
                 Browse cuisines
@@ -154,7 +154,7 @@ export default function Home() {
               <dl className="mt-6 grid grid-cols-3 gap-3 text-center">
                 <div className="rounded-2xl bg-white/10 p-3">
                   <dt className="text-xs text-orange-100">Explore</dt>
-                  <dd className="mt-1 text-sm font-black">Countries</dd>
+                  <dd className="mt-1 text-sm font-black">Cuisines</dd>
                 </div>
                 <div className="rounded-2xl bg-white/10 p-3">
                   <dt className="text-xs text-orange-100">Learn</dt>
@@ -174,11 +174,11 @@ export default function Home() {
         <div className="mx-auto max-w-7xl">
           <div className="mb-10 grid gap-8 lg:grid-cols-[0.85fr_1.15fr] lg:items-end">
             <div>
-              <p className="font-bold uppercase tracking-[0.2em] text-orange-700">Interactive atlas</p>
-              <h2 className="mt-3 text-4xl font-black tracking-tight sm:text-5xl">Start with a place. Follow the flavor.</h2>
+              <p className="font-bold uppercase tracking-[0.2em] text-orange-700">Cuisine Explorer</p>
+              <h2 className="mt-3 text-4xl font-black tracking-tight sm:text-5xl">Start with a cuisine. Find what to try next.</h2>
             </div>
             <p className="text-lg leading-8 text-slate-700">
-              Use the map, search by country, or filter by region to discover signature dishes, flavor profiles, beginner-friendly foods, and curated products where available.
+              Search by country, browse by region, or use the interactive explorer to discover signature dishes, beginner-friendly foods, pantry staples, snacks, sauces, drinks, ingredients, cookware, cookbooks, and giftable foods.
             </p>
           </div>
 
@@ -202,7 +202,7 @@ export default function Home() {
           </div>
 
           <div className="grid gap-6 lg:grid-cols-[1.15fr_0.85fr]">
-            <section aria-label="Interactive cuisine map">
+            <section aria-label="Cuisine Explorer">
               <WorldMap countries={visibleCountries.map(String)} selectedCountry={displayCountry as string} setSelectedCountry={chooseCountry} />
             </section>
             <CountryPanel country={displayCountry as string} cuisine={cuisines[displayCountry]} />
@@ -214,10 +214,10 @@ export default function Home() {
         <div className="mx-auto max-w-7xl">
           <div className="flex flex-col justify-between gap-4 md:flex-row md:items-end">
             <div>
-              <p className="font-bold uppercase tracking-[0.2em] text-orange-700">Taste collections</p>
+              <p className="font-bold uppercase tracking-[0.2em] text-orange-700">Shop the flavors</p>
               <h2 className="mt-3 text-4xl font-black tracking-tight sm:text-5xl">Bring {displayCountry} flavors home</h2>
               <p className="mt-4 max-w-3xl text-lg leading-8 text-slate-700">
-                Browse approachable pantry staples, sweets, sauces, drinks, and ingredients selected to help you understand a cuisine through real foods.
+                Start with approachable pantry staples, sweets, sauces, drinks, and ingredients selected to help you understand a cuisine through real foods.
               </p>
             </div>
             <Link className="rounded-full border border-orange-200 px-5 py-3 text-center font-bold text-slate-900 transition hover:border-orange-500 hover:bg-orange-50" href={`/cuisines/${slugify(displayCountry as string)}`}>
@@ -251,7 +251,7 @@ export default function Home() {
       <section className="bg-orange-50 px-6 py-16 sm:px-10 lg:px-16">
         <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.8fr_1.2fr]">
           <div>
-            <p className="font-bold uppercase tracking-[0.2em] text-orange-700">How to use the atlas</p>
+            <p className="font-bold uppercase tracking-[0.2em] text-orange-700">How to use the Cuisine Explorer</p>
             <h2 className="mt-3 text-4xl font-black tracking-tight sm:text-5xl">A simple path from curiosity to your table.</h2>
             <p className="mt-4 leading-7 text-slate-700">
               Culinary Atlas is built for browsing, learning, planning meals, and finding authentic products without feeling overwhelmed.
