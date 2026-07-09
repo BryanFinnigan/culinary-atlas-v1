@@ -1,18 +1,21 @@
 "use client";
 
+import Link from "next/link";
 import { useMemo, useState } from "react";
 import CountryPanel from "@/components/CountryPanel";
 import SearchBar from "@/components/SearchBar";
 import WorldMap from "@/components/WorldMap";
 import cuisines from "@/data/cuisines.json";
+import products from "@/data/products.json";
 
 type CuisineMap = typeof cuisines;
 type CountryName = keyof CuisineMap;
+type Product = (typeof products)[number];
 
 const featuredRegions = [
   {
     name: "Tokyo, Japan",
-    plate: "Ramen, yakitori, yakitori alleys, seasonal sweets",
+    plate: "Ramen, yakitori, department-store food halls, seasonal sweets",
     mood: "Precise, fast-moving, deeply seasonal",
     detail:
       "Start with a neighborhood noodle counter, browse a department-store food hall, and end the night with yakitori or a quiet cocktail bar.",
@@ -34,23 +37,76 @@ const featuredRegions = [
 ];
 
 const tripSteps = [
-  "Pick a craving: noodles, spice, seafood, sweets, markets, or street food.",
-  "Choose a destination guide that explains what to order and why it matters.",
-  "Build a flexible route around signature dishes, local neighborhoods, and easy first stops.",
+  "Collect country, cuisine, and product data as reusable assets.",
+  "Turn those assets into searchable map experiences, country pages, and collections.",
+  "Publish SEO-ready product pages and measure affiliate clicks to improve conversion.",
 ];
 
 const uxFeatures = [
-  "Clearer landing page copy for first-time visitors",
-  "Destination cards that explain the food, the mood, and where to begin",
-  "Mobile-friendly sections with simple navigation and strong contrast",
-  "Static page structure designed to deploy cleanly on Vercel",
+  "Interactive country exploration connected to structured cuisine data",
+  "Curated product collections that support affiliate revenue without becoming a link dump",
+  "Food & Culture Notes that provide context without scorecards or cultural judgment",
+  "SEO-ready country and product architecture designed to grow over time",
 ];
+
+function slugify(value: string) {
+  return value
+    .toLowerCase()
+    .replace(/&/g, "and")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/(^-|-$)+/g, "");
+}
+
+function groupProductsByCollection(items: Product[]) {
+  return items.reduce<Record<string, Product[]>>((groups, item) => {
+    const key = item.collection || "Taste Collection";
+    groups[key] = groups[key] || [];
+    groups[key].push(item);
+    return groups;
+  }, {});
+}
+
+function ProductCard({ product }: { product: Product }) {
+  return (
+    <article className="flex h-full flex-col justify-between rounded-3xl border border-orange-100 bg-white p-5 shadow-sm transition hover:-translate-y-1 hover:shadow-xl hover:shadow-orange-950/10">
+      <div>
+        <p className="text-xs font-black uppercase tracking-[0.18em] text-orange-600">
+          {product.category}
+        </p>
+        <h3 className="mt-3 text-xl font-black text-slate-950">
+          {product.productName}
+        </h3>
+        <p className="mt-1 text-sm font-semibold text-slate-500">
+          {product.brand}
+        </p>
+        <p className="mt-4 text-sm leading-6 text-slate-700">
+          {product.whyTryIt}
+        </p>
+      </div>
+      <div className="mt-5 flex flex-wrap items-center justify-between gap-3">
+        <span className="rounded-full bg-emerald-50 px-3 py-1 text-xs font-bold text-emerald-800 ring-1 ring-emerald-100">
+          {product.discoveryLevel}
+        </span>
+        <a
+          className="rounded-full bg-slate-950 px-4 py-2 text-sm font-bold text-white transition hover:bg-orange-700"
+          href={product.affiliateUrl}
+          rel="nofollow sponsored noopener noreferrer"
+          target="_blank"
+        >
+          View on Amazon
+        </a>
+      </div>
+    </article>
+  );
+}
 
 export default function Home() {
   const countryNames = Object.keys(cuisines) as CountryName[];
-  const [selectedCountry, setSelectedCountry] = useState<CountryName>(
-    (countryNames[0] as CountryName) || ("Algeria" as CountryName)
-  );
+  const defaultCountry = (countryNames.includes("United Kingdom" as CountryName)
+    ? "United Kingdom"
+    : countryNames[0]) as CountryName;
+
+  const [selectedCountry, setSelectedCountry] = useState<CountryName>(defaultCountry);
   const [search, setSearch] = useState("");
   const [region, setRegion] = useState("All Regions");
 
@@ -73,15 +129,18 @@ export default function Home() {
     }
   }
 
-  // Ensure selectedCountry is in visible countries, otherwise use first visible
   const displayCountry =
     visibleCountries.includes(selectedCountry) && selectedCountry in cuisines
       ? selectedCountry
-      : (visibleCountries[0] as CountryName) || ("Algeria" as CountryName);
+      : (visibleCountries[0] as CountryName) || defaultCountry;
+
+  const selectedProducts = products.filter(
+    (product) => product.country === displayCountry
+  );
+  const productCollections = groupProductsByCollection(selectedProducts);
 
   return (
     <main className="min-h-screen bg-orange-50 text-slate-950">
-      {/* Hero Section */}
       <section className="relative overflow-hidden px-6 py-8 sm:px-10 lg:px-16">
         <div className="absolute inset-0 -z-10 bg-gradient-to-br from-orange-200 via-amber-100 to-white" />
 
@@ -91,17 +150,17 @@ export default function Home() {
           </a>
 
           <div className="hidden items-center gap-6 text-sm font-semibold text-slate-600 sm:flex">
+            <a className="transition hover:text-slate-950" href="#explore">
+              Explore Map
+            </a>
+            <a className="transition hover:text-slate-950" href="#products">
+              Collections
+            </a>
             <a className="transition hover:text-slate-950" href="#destinations">
               Destinations
             </a>
-            <a className="transition hover:text-slate-950" href="#explore">
-              Explore Cuisines
-            </a>
             <a className="transition hover:text-slate-950" href="#plan">
-              Plan
-            </a>
-            <a className="transition hover:text-slate-950" href="#features">
-              Features
+              Roadmap
             </a>
           </div>
         </nav>
@@ -116,28 +175,29 @@ export default function Home() {
             </p>
 
             <h1 className="max-w-4xl text-5xl font-black leading-[0.95] tracking-[-0.05em] sm:text-6xl lg:text-7xl">
-              Find the dishes, markets, and neighborhoods worth traveling for.
+              Find the foods, cultures, and products worth exploring.
             </h1>
 
             <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-700 sm:text-xl">
-              Culinary Atlas turns food curiosity into practical travel ideas.
-              Browse approachable city snapshots, learn what to order, and build
-              a trip around memorable meals instead of generic checklists.
+              Culinary Atlas connects cuisine context, regional food culture,
+              and practical products you can try at home. Start with the map,
+              then follow curated collections into pantry staples, sweets,
+              ingredients, and SEO-ready product pages.
             </p>
 
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <a
                 className="rounded-full bg-orange-600 px-6 py-3 text-center font-bold text-white shadow-lg shadow-orange-900/15 transition hover:-translate-y-0.5 hover:bg-orange-700"
-                href="#destinations"
+                href="#explore"
               >
-                Explore featured cities
+                Explore the cuisine map
               </a>
 
               <a
                 className="rounded-full border border-orange-200 bg-white px-6 py-3 text-center font-bold text-slate-900 transition hover:-translate-y-0.5 hover:border-orange-400"
-                href="#explore"
+                href="#products"
               >
-                Explore by cuisine
+                View taste collections
               </a>
             </div>
           </div>
@@ -145,30 +205,33 @@ export default function Home() {
           <aside className="rounded-[2rem] border border-orange-200 bg-white p-5 shadow-2xl shadow-orange-950/10">
             <div className="rounded-[1.5rem] bg-slate-950 p-6 text-white">
               <p className="text-sm font-bold uppercase tracking-[0.18em] text-amber-300">
-                Tonight's route
+                Featured taste collection
               </p>
 
-              <h2 className="mt-4 text-3xl font-black">Market crawl in Oaxaca</h2>
+              <h2 className="mt-4 text-3xl font-black">Taste Britain at Home</h2>
 
               <p className="mt-3 leading-7 text-orange-100">
-                Breakfast tamales, a mid-day tlayuda, chocolate atole, and a
-                mezcal tasting with notes you can actually use.
+                A starter path through tea, biscuits, breakfast staples, pantry
+                classics, baking items, and premium British foods—built from
+                real Amazon affiliate links collected for the product catalog.
               </p>
 
               <dl className="mt-6 grid grid-cols-3 gap-3 text-center">
                 <div className="rounded-2xl bg-white/10 p-3">
-                  <dt className="text-xs text-orange-100">Stops</dt>
-                  <dd className="text-2xl font-black">6</dd>
+                  <dt className="text-xs text-orange-100">Products</dt>
+                  <dd className="text-2xl font-black">
+                    {products.filter((product) => product.country === "United Kingdom").length}
+                  </dd>
                 </div>
 
                 <div className="rounded-2xl bg-white/10 p-3">
-                  <dt className="text-xs text-orange-100">Budget</dt>
-                  <dd className="text-2xl font-black">$$</dd>
+                  <dt className="text-xs text-orange-100">Country</dt>
+                  <dd className="text-2xl font-black">UK</dd>
                 </div>
 
                 <div className="rounded-2xl bg-white/10 p-3">
-                  <dt className="text-xs text-orange-100">Pace</dt>
-                  <dd className="text-2xl font-black">Easy</dd>
+                  <dt className="text-xs text-orange-100">Focus</dt>
+                  <dd className="text-2xl font-black">SEO</dd>
                 </div>
               </dl>
             </div>
@@ -176,68 +239,27 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Featured Destinations Section */}
-      <section id="destinations" className="px-6 py-16 sm:px-10 lg:px-16">
-        <div className="mx-auto max-w-7xl">
-          <div className="max-w-3xl">
-            <p className="font-bold uppercase tracking-[0.2em] text-orange-700">
-              Featured destinations
-            </p>
-
-            <h2 className="mt-3 text-4xl font-black tracking-tight sm:text-5xl">
-              Start with a place. Leave with a plan.
-            </h2>
-
-            <p className="mt-4 text-lg leading-8 text-slate-700">
-              Each guide favors practical context: what makes the food special,
-              how the city feels, and where to begin.
-            </p>
-          </div>
-
-          <div className="mt-10 grid gap-5 lg:grid-cols-3">
-            {featuredRegions.map((region) => (
-              <article
-                key={region.name}
-                className="rounded-[1.75rem] border border-orange-200 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-xl hover:shadow-orange-950/10"
-              >
-                <p className="text-sm font-bold uppercase tracking-[0.18em] text-orange-600">
-                  {region.plate}
-                </p>
-
-                <h3 className="mt-4 text-2xl font-black">{region.name}</h3>
-
-                <p className="mt-2 font-semibold text-slate-600">{region.mood}</p>
-
-                <p className="mt-4 leading-7 text-slate-700">{region.detail}</p>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Explore Cuisines by Country Section */}
       <section
         id="explore"
         className="bg-slate-50 px-6 py-16 sm:px-10 lg:px-16"
       >
         <div className="mx-auto max-w-7xl">
-          <div className="mb-10 max-w-3xl">
-            <p className="font-bold uppercase tracking-[0.2em] text-orange-700">
-              Interactive Explorer
-            </p>
-
-            <h2 className="mt-3 text-4xl font-black tracking-tight sm:text-5xl">
-              Explore cuisines by country
-            </h2>
-
-            <p className="mt-4 text-lg leading-8 text-slate-700">
-              Discover what makes each cuisine unique. Search by name, filter by
-              region, or click on the map to explore flavor profiles, signature
-              dishes, dining traditions, and export-friendly products.
+          <div className="mb-10 grid gap-8 lg:grid-cols-[0.85fr_1.15fr] lg:items-end">
+            <div>
+              <p className="font-bold uppercase tracking-[0.2em] text-orange-700">
+                Interactive Explorer
+              </p>
+              <h2 className="mt-3 text-4xl font-black tracking-tight sm:text-5xl">
+                Explore cuisines by country
+              </h2>
+            </div>
+            <p className="text-lg leading-8 text-slate-700">
+              Search, filter, and select a country to connect the map experience
+              with cuisine summaries, Food & Culture Notes, and any product
+              collections already gathered for that country.
             </p>
           </div>
 
-          {/* Search and Filter */}
           <div className="mb-6 rounded-3xl border border-slate-200 bg-white p-4 shadow-sm backdrop-blur">
             <SearchBar
               search={search}
@@ -247,8 +269,7 @@ export default function Home() {
               regions={regions}
             />
 
-            {/* Country Pills */}
-            <div className="mt-4 flex flex-wrap gap-2">
+            <div className="mt-4 flex max-h-44 flex-wrap gap-2 overflow-auto pr-1">
               {visibleCountries.map((country) => (
                 <button
                   key={country}
@@ -265,34 +286,129 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Map and Country Panel Grid */}
           <div className="grid gap-6 lg:grid-cols-[1.15fr_0.85fr]">
             <section aria-label="Interactive cuisine map">
               <WorldMap
-                countries={visibleCountries}
-                selectedCountry={displayCountry}
+                countries={visibleCountries.map(String)}
+                selectedCountry={displayCountry as string}
                 setSelectedCountry={chooseCountry}
               />
             </section>
 
             <CountryPanel
-              country={displayCountry}
+              country={displayCountry as string}
               cuisine={cuisines[displayCountry]}
             />
           </div>
         </div>
       </section>
 
-      {/* Planning Section */}
+      <section id="products" className="bg-white px-6 py-16 sm:px-10 lg:px-16">
+        <div className="mx-auto max-w-7xl">
+          <div className="flex flex-col justify-between gap-4 md:flex-row md:items-end">
+            <div>
+              <p className="font-bold uppercase tracking-[0.2em] text-orange-700">
+                Curated commerce layer
+              </p>
+              <h2 className="mt-3 text-4xl font-black tracking-tight sm:text-5xl">
+                {displayCountry} taste collections
+              </h2>
+              <p className="mt-4 max-w-3xl text-lg leading-8 text-slate-700">
+                These collections preserve the Amazon link data gathered so far
+                and show how each country page can support education, SEO, and
+                affiliate revenue without becoming a generic shopping list.
+              </p>
+            </div>
+            <Link
+              className="rounded-full border border-orange-200 px-5 py-3 text-center font-bold text-slate-900 transition hover:border-orange-500 hover:bg-orange-50"
+              href={`/countries/${slugify(displayCountry as string)}`}
+            >
+              Open country page
+            </Link>
+          </div>
+
+          {selectedProducts.length > 0 ? (
+            <div className="mt-10 grid gap-8">
+              {Object.entries(productCollections).map(([collection, items]) => (
+                <section
+                  key={collection}
+                  className="rounded-[2rem] border border-orange-100 bg-orange-50/50 p-5 md:p-6"
+                >
+                  <div className="mb-5 flex items-center justify-between gap-4">
+                    <div>
+                      <h3 className="text-2xl font-black text-slate-950">
+                        {collection}
+                      </h3>
+                      <p className="mt-1 text-sm font-semibold text-slate-600">
+                        {items.length} curated products
+                      </p>
+                    </div>
+                  </div>
+                  <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+                    {items.slice(0, 8).map((product) => (
+                      <ProductCard key={product.id} product={product} />
+                    ))}
+                  </div>
+                </section>
+              ))}
+            </div>
+          ) : (
+            <div className="mt-10 rounded-[2rem] border border-dashed border-orange-200 bg-orange-50 p-8 text-slate-700">
+              <h3 className="text-2xl font-black text-slate-950">
+                Product catalog coming soon for {displayCountry}
+              </h3>
+              <p className="mt-3 max-w-3xl leading-7">
+                The cuisine data is ready. The next growth step is collecting
+                country-specific products, preserving affiliate links, and
+                building collection pages that can rank for searches like
+                clotted cream, San Marzano tomatoes, or Japanese curry blocks.
+              </p>
+            </div>
+          )}
+        </div>
+      </section>
+
+      <section id="destinations" className="px-6 py-16 sm:px-10 lg:px-16">
+        <div className="mx-auto max-w-7xl">
+          <div className="max-w-3xl">
+            <p className="font-bold uppercase tracking-[0.2em] text-orange-700">
+              Featured destinations
+            </p>
+            <h2 className="mt-3 text-4xl font-black tracking-tight sm:text-5xl">
+              Start with a place. Leave with a plan.
+            </h2>
+            <p className="mt-4 text-lg leading-8 text-slate-700">
+              Each guide favors practical context: what makes the food special,
+              how the city feels, and where to begin.
+            </p>
+          </div>
+
+          <div className="mt-10 grid gap-5 lg:grid-cols-3">
+            {featuredRegions.map((region) => (
+              <article
+                key={region.name}
+                className="rounded-[1.75rem] border border-orange-200 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-xl hover:shadow-orange-950/10"
+              >
+                <p className="text-sm font-bold uppercase tracking-[0.18em] text-orange-600">
+                  {region.plate}
+                </p>
+                <h3 className="mt-4 text-2xl font-black">{region.name}</h3>
+                <p className="mt-2 font-semibold text-slate-600">{region.mood}</p>
+                <p className="mt-4 leading-7 text-slate-700">{region.detail}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <section id="plan" className="bg-slate-950 px-6 py-16 text-white sm:px-10 lg:px-16">
         <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.8fr_1.2fr]">
           <div>
             <p className="font-bold uppercase tracking-[0.2em] text-amber-300">
-              Simple planning
+              Product operating system
             </p>
-
             <h2 className="mt-3 text-4xl font-black tracking-tight sm:text-5xl">
-              A better path from craving to itinerary.
+              A repeatable path from data to revenue.
             </h2>
           </div>
 
@@ -302,7 +418,6 @@ export default function Home() {
                 <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-amber-300 font-black text-slate-950">
                   {index + 1}
                 </span>
-
                 <p className="pt-2 text-lg leading-7 text-orange-100">{step}</p>
               </li>
             ))}
@@ -310,13 +425,11 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Features Section */}
       <section id="features" className="px-6 py-16 sm:px-10 lg:px-16">
         <div className="mx-auto max-w-7xl rounded-[2rem] border border-orange-200 bg-white p-8 shadow-sm lg:p-10">
           <h2 className="text-3xl font-black tracking-tight sm:text-4xl">
-            What changed for a smoother experience
+            What this version moves forward
           </h2>
-
           <div className="mt-8 grid gap-4 md:grid-cols-2">
             {uxFeatures.map((feature) => (
               <div
