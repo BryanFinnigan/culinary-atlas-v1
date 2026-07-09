@@ -1,135 +1,163 @@
 {
-  "Algeria": {
-    "region": "North Africa",
-    "cuisineSummary": "Algeria cuisine is aromatic and layered, shaped by Amazigh/Berber, Arab, Mediterranean, Ottoman, and regional African influences. This entry is an introduction, not a complete definition of every local food tradition.",
-    "flavorProfile": [
-      "Warm-spiced",
-      "Savory",
-      "Tangy",
-      "Aromatic",
-      "Rich",
-      "Comforting"
-    ],
-    "staples": [
-      "Couscous",
-      "Semolina",
-      "Lamb",
-      "Chickpeas",
-      "Olive oil",
-      "Dates"
-    ],
-    "signatureDishes": [
-      "Couscous dishes",
-      "Soups",
-      "Grilled meats",
-      "Pastries",
-      "Stews"
-    ],
-    "popularBeverages": [
-      "Mint tea",
-      "Coffee",
-      "Fruit juices",
-      "Herbal drinks"
-    ],
-    "snackCulture": "Pastries, nuts, date sweets, fried bites, and savory snacks are common.",
-    "diningTraditions": "Dining is best presented as context rather than judgment: shared meals, hospitality customs, holidays, everyday routines, and regional etiquette may vary within the country.",
-    "beginnerFoods": [
-      "Couscous dishes",
-      "Soups",
-      "Grilled meats",
-      "Couscous",
-      "Semolina"
-    ],
-    "premiumFoods": [
-      "Regional tasting menus",
-      "Artisan specialties",
-      "Premium local ingredients",
-      "Celebration dishes"
-    ],
-    "exportFriendlyProducts": [
-      "Teas",
-      "Coffee",
-      "Spice blends",
-      "Sauces",
-      "Snacks",
-      "Packaged sweets"
-    ],
+  "United Kingdom": {
+    "region": "Western Europe",
+    "cuisineSummary": "United Kingdom food culture is regional and layered, shaped by England, Scotland, Wales, Northern Ireland, immigration, tea traditions, baking, pub food, coastal seafood, and everyday pantry staples. This is an introduction, not a complete definition.",
+    "flavorProfile": ["Savory", "Comforting", "Buttery", "Malty", "Sweet", "Tea-friendly"],
+    "staples": ["Tea", "Bread", "Potatoes", "Dairy", "Beans", "Biscuits", "Preserves"],
+    "signatureDishes": ["Full English breakfast", "Fish and chips", "Sunday roast", "Scones with clotted cream", "Shepherd's pie", "Sticky toffee pudding"],
+    "popularBeverages": ["Black tea", "Coffee", "Ale", "Cider", "Fruit cordials"],
+    "snackCulture": "Tea, biscuits, crisps, chocolate bars, bakery items, and nostalgic sweets are approachable discovery points for North American shoppers.",
+    "diningTraditions": "Dining customs vary by region and household. Afternoon tea, pub meals, Sunday roasts, quick breakfasts, holiday foods, and multicultural city food scenes all matter.",
+    "beginnerFoods": ["Yorkshire Tea", "Digestive biscuits", "Heinz beans", "Crumpets", "Orange marmalade", "Cadbury Dairy Milk"],
+    "premiumFoods": ["Clotted cream", "Stilton", "Fortnum & Mason tea", "Premium preserves", "Artisan shortbread"],
+    "exportFriendlyProducts": ["Tea", "Biscuits", "Chocolate", "Preserves", "Condiments", "Baking mixes"],
     "foodAndCultureNotes": {
-      "regionalDiversity": "Algeria should not be treated as a single uniform cuisine. Regional, urban, rural, coastal, inland, and community traditions may differ in ingredients, techniques, and dining customs.",
-      "seasonality": "Where possible, present seasonal ingredients and food calendars as cultural context rather than as a rating or score. Note that seasonality depends on region, climate, and local availability.",
-      "preservationAndTechnique": "Highlight techniques such as fermentation, drying, smoking, pickling, curing, milling, roasting, or slow cooking when they are relevant. These practices often reflect climate, storage needs, flavor development, and tradition.",
-      "diningCustoms": "Describe hospitality, table customs, family meals, street-food habits, market culture, and holiday foods without implying that one style of eating is more advanced or more sustainable than another.",
-      "historyAndInfluence": "Algeria's food culture reflects geography, agriculture, migration, trade, religion, climate, and everyday household practice. Deeper pages should identify specific communities and regions rather than flattening the cuisine into one style.",
-      "localSpecialties": "Future subpages should highlight regional markets, local specialties, holiday foods, street-food traditions, and community-specific dishes within Algeria.",
-      "modernFoodScene": "Include modern context where relevant: cafés, supermarkets, chef-led restaurants, immigrant communities, convenience foods, online retail, and changing tastes among younger eaters.",
-      "responsibleExplorationNote": "Use this page as a starting point. Avoid reducing a cuisine to a single dish, flavor, or stereotype, and update entries as better regional sources and product data become available."
+      "regionalDiversity": "England, Scotland, Wales, Northern Ireland, and immigrant communities each add distinct traditions. Avoid treating British food as one narrow style.",
+      "seasonality": "Seasonal foods such as berries, root vegetables, seafood, roasts, and Christmas baking should be presented as cultural context rather than ranked.",
+      "preservationAndTechnique": "Baking, pickling, curing, preserving, roasting, and tea blending all create useful product-page and collection opportunities.",
+      "diningCustoms": "Tea culture, pub culture, Sunday meals, market foods, and holiday foods should be explained as context, not as judgments.",
+      "historyAndInfluence": "British food reflects regional agriculture, empire, migration, industrial food brands, seaside culture, and modern multicultural cities.",
+      "localSpecialties": "Future subpages should cover Scottish shortbread and oatcakes, Welsh cakes, Northern Irish breads, English cheeses, seaside sweets, and London food halls.",
+      "modernFoodScene": "Modern UK food includes supermarkets, cafés, global restaurants, specialty import shopping, premium grocers, and online pantry products.",
+      "responsibleExplorationNote": "Use this page as a starting point and keep adding regional nuance as the product catalog grows."
     }
   },
-  "Argentina": {
-    "region": "South America",
-    "cuisineSummary": "Argentina cuisine is regional and generous, shaped by Indigenous traditions, European influence, local produce, grains, grilled foods, seafood, and comfort foods. This entry is an introduction, not a complete definition of every local food tradition.",
-    "flavorProfile": [
-      "Savory",
-      "Fresh",
-      "Hearty",
-      "Herbaceous",
-      "Tangy",
-      "Comforting"
-    ],
-    "staples": [
-      "Rice",
-      "Corn",
-      "Potatoes",
-      "Beans",
-      "Meats",
-      "Local produce"
-    ],
-    "signatureDishes": [
-      "Empanadas",
-      "Grilled meats",
-      "Stews",
-      "Rice dishes",
-      "Regional seafood"
-    ],
-    "popularBeverages": [
-      "Coffee",
-      "Tea",
-      "Fruit juices",
-      "Beer",
-      "Wine"
-    ],
-    "snackCulture": "Street snacks, bakery treats, fried bites, sweets, and regional packaged snacks are common discovery points.",
-    "diningTraditions": "Dining is best presented as context rather than judgment: shared meals, hospitality customs, holidays, everyday routines, and regional etiquette may vary within the country.",
-    "beginnerFoods": [
-      "Empanadas",
-      "Grilled meats",
-      "Stews",
-      "Rice",
-      "Corn"
-    ],
-    "premiumFoods": [
-      "Regional tasting menus",
-      "Artisan specialties",
-      "Premium local ingredients",
-      "Celebration dishes"
-    ],
-    "exportFriendlyProducts": [
-      "Teas",
-      "Coffee",
-      "Spice blends",
-      "Sauces",
-      "Snacks",
-      "Packaged sweets"
-    ],
+  "Italy": {
+    "region": "Western Europe / Mediterranean",
+    "cuisineSummary": "Italian cuisine is profoundly regional, built around local ingredients, seasonality, pasta and grain traditions, olive oil, cheeses, seafood, cured meats, coffee, sweets, and careful simplicity.",
+    "flavorProfile": ["Fresh", "Savory", "Herbaceous", "Tangy", "Rich", "Regional"],
+    "staples": ["Pasta", "Olive oil", "Tomatoes", "Cheese", "Bread", "Rice", "Coffee"],
+    "signatureDishes": ["Pizza", "Pasta dishes", "Risotto", "Lasagna", "Tiramisu", "Polenta"],
+    "popularBeverages": ["Espresso", "Coffee", "Mineral water", "Aperitifs", "Limoncello"],
+    "snackCulture": "Italian discovery can begin with pasta, coffee, cookies, chocolates, pantry sauces, regional sweets, and giftable specialty foods.",
+    "diningTraditions": "Italian dining varies heavily by region and occasion, from coffee bars and aperitivo to family meals, holiday cakes, seafood traditions, and regional pasta customs.",
+    "beginnerFoods": ["De Cecco pasta", "San Marzano tomatoes", "Lavazza coffee", "Parmigiano Reggiano", "Balsamic vinegar", "Nutella"],
+    "premiumFoods": ["Parmigiano Reggiano DOP", "Prosciutto di Parma", "Guanciale", "Porcini mushrooms", "Traditional balsamic vinegar", "Truffle products"],
+    "exportFriendlyProducts": ["Pasta", "Coffee", "Olive oil", "Tomatoes", "Vinegar", "Cookies", "Chocolate", "Preserves"],
     "foodAndCultureNotes": {
-      "regionalDiversity": "Argentina should not be treated as a single uniform cuisine. Regional, urban, rural, coastal, inland, and community traditions may differ in ingredients, techniques, and dining customs.",
-      "seasonality": "Where possible, present seasonal ingredients and food calendars as cultural context rather than as a rating or score. Note that seasonality depends on region, climate, and local availability.",
-      "preservationAndTechnique": "Highlight techniques such as fermentation, drying, smoking, pickling, curing, milling, roasting, or slow cooking when they are relevant. These practices often reflect climate, storage needs, flavor development, and tradition.",
-      "diningCustoms": "Describe hospitality, table customs, family meals, street-food habits, market culture, and holiday foods without implying that one style of eating is more advanced or more sustainable than another.",
-      "historyAndInfluence": "Argentina's food culture reflects geography, agriculture, migration, trade, religion, climate, and everyday household practice. Deeper pages should identify specific communities and regions rather than flattening the cuisine into one style.",
-      "localSpecialties": "Future subpages should highlight regional markets, local specialties, holiday foods, street-food traditions, and community-specific dishes within Argentina.",
-      "modernFoodScene": "Include modern context where relevant: cafés, supermarkets, chef-led restaurants, immigrant communities, convenience foods, online retail, and changing tastes among younger eaters.",
-      "responsibleExplorationNote": "Use this page as a starting point. Avoid reducing a cuisine to a single dish, flavor, or stereotype, and update entries as better regional sources and product data become available."
+      "regionalDiversity": "Sicily, Naples, Tuscany, Emilia-Romagna, Lombardy, Rome, Liguria, and coastal regions each deserve separate treatment.",
+      "seasonality": "Seasonality matters in Italian cooking, but the site should explain it as context, not as a score.",
+      "preservationAndTechnique": "Dry pasta, cured meats, cheeses, olive oil, preserved tomatoes, vinegar, coffee roasting, and baking create strong SEO and product relationships.",
+      "diningCustoms": "Coffee bar habits, aperitivo, family meals, holiday breads, and regional courses vary across the country.",
+      "historyAndInfluence": "Regional agriculture, trade, city-states, cucina povera, Catholic food calendars, and Mediterranean exchange shaped Italian foodways.",
+      "localSpecialties": "Future subpages should cover Emilia-Romagna pasta and cheese, Neapolitan pizza, Sicilian sweets, Ligurian pesto, Roman pasta, and Modena balsamic.",
+      "modernFoodScene": "Modern Italian food includes supermarkets, online specialty imports, chef-led restaurants, casual cafés, global exports, and premium regional producers.",
+      "responsibleExplorationNote": "Avoid reducing Italy to pizza and pasta alone; use products as entry points into regions, techniques, and traditions."
+    }
+  },
+  "Japan": {
+    "region": "East Asia",
+    "cuisineSummary": "Japanese cuisine balances seasonality, craft, regional specialties, fermentation, seafood, rice culture, noodles, tea, sweets, and everyday convenience innovation.",
+    "flavorProfile": ["Umami-rich", "Clean", "Seasonal", "Fermented", "Savory", "Subtly sweet"],
+    "staples": ["Rice", "Soy sauce", "Miso", "Dashi", "Seaweed", "Noodles", "Tofu"],
+    "signatureDishes": ["Sushi", "Ramen", "Tempura", "Donburi", "Curry rice", "Yakitori"],
+    "popularBeverages": ["Green tea", "Matcha", "Canned coffee", "Ramune", "Sake"],
+    "snackCulture": "Seasonal snacks, regional sweets, convenience-store foods, packaged candy, tea products, and noodle kits are useful entry points.",
+    "diningTraditions": "Dining customs vary between home cooking, izakaya, formal meals, markets, convenience stores, cafés, and regional specialties.",
+    "beginnerFoods": ["Ramen", "Japanese curry", "Green tea", "Rice crackers", "Pocky", "Miso soup"],
+    "premiumFoods": ["Matcha", "Specialty soy sauce", "Premium rice", "Japanese knives", "Regional sweets"],
+    "exportFriendlyProducts": ["Tea", "Sauces", "Noodles", "Rice crackers", "Candy", "Seasonings"],
+    "foodAndCultureNotes": {
+      "regionalDiversity": "Hokkaido seafood, Kansai cooking, Okinawan foodways, Kyushu ramen, Kyoto sweets, and Tokyo food culture deserve separate exploration.",
+      "seasonality": "Seasonal awareness is important in Japanese food but should be explained with examples rather than ranked.",
+      "preservationAndTechnique": "Fermentation, drying, pickling, dashi-making, noodle production, tea processing, and careful knife work are important techniques.",
+      "diningCustoms": "Context should include home meals, bento, izakaya, department-store food halls, markets, festivals, and convenience-store innovation.",
+      "historyAndInfluence": "Rice agriculture, Buddhist influence, seafood geography, fermentation, seasonal aesthetics, and modern retail shaped Japanese food.",
+      "localSpecialties": "Future subpages should include Hokkaido, Kansai, Tokyo, Okinawa, Kyoto, Kyushu ramen regions, and convenience-store culture.",
+      "modernFoodScene": "Modern Japanese food includes supermarkets, vending machines, convenience stores, cafés, ramen chains, and premium regional brands.",
+      "responsibleExplorationNote": "Use the page as a starting point and avoid reducing Japanese food to sushi alone."
+    }
+  },
+  "Mexico": {
+    "region": "North America",
+    "cuisineSummary": "Mexican cuisine is deeply regional, rooted in Indigenous foodways and shaped by Spanish influence, local agriculture, and living traditions around corn, chiles, beans, herbs, cacao, and celebration.",
+    "flavorProfile": ["Earthy", "Spicy", "Smoky", "Bright", "Herbaceous", "Regional"],
+    "staples": ["Corn", "Beans", "Chiles", "Tomatoes", "Avocado", "Lime", "Cacao"],
+    "signatureDishes": ["Tacos", "Mole", "Tamales", "Pozole", "Enchiladas", "Ceviche"],
+    "popularBeverages": ["Agua fresca", "Horchata", "Coffee", "Tamarind drinks", "Hot chocolate"],
+    "snackCulture": "Sauces, candies, masa products, dried chiles, hot chocolate, chips, and pantry staples can introduce users to regional flavors.",
+    "diningTraditions": "Dining varies by region, household, market, holiday, and street-food setting.",
+    "beginnerFoods": ["Tortillas", "Salsa", "Hot chocolate", "Tacos", "Mole", "Tamales"],
+    "premiumFoods": ["Mole pastes", "Single-origin cacao", "Specialty coffee", "Dried chiles", "Regional sauces"],
+    "exportFriendlyProducts": ["Sauces", "Dried chiles", "Corn products", "Chocolate", "Coffee", "Candy"],
+    "foodAndCultureNotes": {
+      "regionalDiversity": "Oaxaca, Yucatán, Puebla, Baja, Mexico City, Veracruz, and northern border regions each have distinct ingredients and techniques.",
+      "seasonality": "Seasonal foods, holidays, corn cycles, fruits, and market availability should be explained as context.",
+      "preservationAndTechnique": "Nixtamalization, drying chiles, grinding masa, roasting, fermentation, and slow sauces are important technical foundations.",
+      "diningCustoms": "Street food, family meals, markets, holidays, and regional etiquette should be presented without ranking or stereotypes.",
+      "historyAndInfluence": "Indigenous maize culture, Mesoamerican ingredients, Spanish colonial history, regional agriculture, and migration shape the cuisine.",
+      "localSpecialties": "Future subpages should highlight mole traditions, masa culture, Yucatán citrus and achiote, Baja seafood, and Oaxacan markets.",
+      "modernFoodScene": "Modern Mexican food includes supermarkets, taquerias, chef-led restaurants, diaspora brands, online pantry products, and regional exports.",
+      "responsibleExplorationNote": "Avoid reducing Mexico to a single dish or spice level; build from region, ingredient, and technique."
+    }
+  },
+  "India": {
+    "region": "South Asia",
+    "cuisineSummary": "India is home to many regional food cultures, shaped by climate, religion, migration, language, agriculture, local ingredients, spices, grains, legumes, tea, sweets, and hospitality.",
+    "flavorProfile": ["Aromatic", "Spiced", "Regional", "Tangy", "Savory", "Layered"],
+    "staples": ["Rice", "Wheat", "Lentils", "Spices", "Vegetables", "Yogurt", "Tea"],
+    "signatureDishes": ["Biryani", "Dal", "Dosa", "Chaat", "Tandoori dishes", "Regional curries"],
+    "popularBeverages": ["Chai", "Lassi", "Coffee", "Fruit drinks", "Sugarcane juice"],
+    "snackCulture": "Snack mixes, teas, spice blends, chutneys, sweets, lentils, rice, and pantry kits are strong product-entry points.",
+    "diningTraditions": "Dining customs vary widely by region, religion, household, festival, and urban or rural context.",
+    "beginnerFoods": ["Chai", "Dal", "Basmati rice", "Mild curry sauces", "Naan", "Chutney"],
+    "premiumFoods": ["Premium teas", "Saffron", "Regional spice blends", "Specialty rice", "Festival sweets"],
+    "exportFriendlyProducts": ["Tea", "Spice blends", "Rice", "Sauces", "Snacks", "Sweets"],
+    "foodAndCultureNotes": {
+      "regionalDiversity": "North, South, East, West, and Northeast India have distinct ingredients, breads, grains, spice traditions, and dining patterns.",
+      "seasonality": "Festival calendars, monsoon foods, mango season, regional produce, and local markets should be explained as context.",
+      "preservationAndTechnique": "Spice blooming, fermentation, pickling, drying, grinding, tandoor cooking, and slow simmering are useful topics for future pages.",
+      "diningCustoms": "Hospitality, family meals, thali formats, street food, festival foods, and regional etiquette vary widely.",
+      "historyAndInfluence": "Indigenous foodways, temple traditions, Mughal influence, coastal trade, regional kingdoms, and colonial history shaped India's food landscape.",
+      "localSpecialties": "Future subpages should highlight Punjabi, Bengali, Gujarati, Tamil, Kerala, Goan, Hyderabadi, Rajasthani, and Northeast Indian traditions.",
+      "modernFoodScene": "Modern Indian food includes supermarkets, online grocery brands, global diaspora restaurants, packaged snacks, and premium regional producers.",
+      "responsibleExplorationNote": "Do not treat India as one cuisine; use products and pages to point toward regional depth."
+    }
+  },
+  "Morocco": {
+    "region": "North Africa",
+    "cuisineSummary": "Moroccan cuisine is layered and fragrant, shaped by Amazigh, Arab, Andalusian, Mediterranean, Saharan, and African influences, with spices, preserved lemons, olives, tea, couscous, and tagines.",
+    "flavorProfile": ["Warm-spiced", "Aromatic", "Sweet-savory", "Tangy", "Rich", "Herbal"],
+    "staples": ["Couscous", "Lamb", "Chicken", "Olives", "Preserved lemons", "Chickpeas", "Dates"],
+    "signatureDishes": ["Tagine", "Couscous", "Harira", "Pastilla", "Mechoui", "Briouats"],
+    "popularBeverages": ["Mint tea", "Coffee", "Fruit juices", "Orange blossom drinks"],
+    "snackCulture": "Teas, dates, spice blends, sweets, preserved lemons, and sauces are useful discovery products.",
+    "diningTraditions": "Hospitality, shared meals, market culture, family cooking, and holiday foods are central but vary by region and household.",
+    "beginnerFoods": ["Mint tea", "Couscous", "Tagine spice blends", "Dates", "Harira", "Olives"],
+    "premiumFoods": ["Saffron", "Argan oil", "Premium dates", "Artisan spice blends", "Preserved lemons"],
+    "exportFriendlyProducts": ["Tea", "Dates", "Spice blends", "Sauces", "Preserved lemons", "Sweets"],
+    "foodAndCultureNotes": {
+      "regionalDiversity": "Moroccan cuisine varies between coastal cities, mountain communities, desert regions, and historic urban centers such as Fez and Marrakech.",
+      "seasonality": "Seasonal produce, Ramadan foods, harvests, and holiday meals should be treated as context.",
+      "preservationAndTechnique": "Preserved lemons, drying, spice blending, slow cooking, tea service, and bread-making are important techniques.",
+      "diningCustoms": "Hospitality, shared dishes, tea rituals, markets, and home cooking should be explained without ranking.",
+      "historyAndInfluence": "Amazigh traditions, spice trade, Andalusian influence, Arab culinary exchange, and regional agriculture shaped the cuisine.",
+      "localSpecialties": "Future subpages should explore Fez, Marrakech, coastal seafood, Amazigh mountain traditions, couscous rituals, and preserved lemon techniques.",
+      "modernFoodScene": "Modern Morocco includes cafés, supermarkets, tourism food, online products, chef-led restaurants, and diaspora markets.",
+      "responsibleExplorationNote": "Avoid reducing Morocco to tagine alone; build context around regions, ingredients, and hospitality."
+    }
+  },
+  "France": {
+    "region": "Western Europe",
+    "cuisineSummary": "French cuisine is regional and craft-driven, shaped by breads, dairy, pastries, seafood, meats, vegetables, sauces, wine culture, cafés, and long-standing culinary technique.",
+    "flavorProfile": ["Buttery", "Savory", "Herbaceous", "Rich", "Fresh", "Elegant"],
+    "staples": ["Bread", "Butter", "Cheese", "Wine", "Herbs", "Pastry", "Seafood"],
+    "signatureDishes": ["Baguette", "Croissant", "Coq au vin", "Ratatouille", "Quiche", "Crêpes"],
+    "popularBeverages": ["Coffee", "Wine", "Tea", "Mineral water", "Cider"],
+    "snackCulture": "Pastries, chocolates, jams, biscuits, mustard, teas, and pantry staples are practical discovery products.",
+    "diningTraditions": "French dining varies from cafés and bakeries to markets, bistros, home cooking, regional feasts, and fine dining.",
+    "beginnerFoods": ["Croissants", "Dijon mustard", "Jam", "Butter biscuits", "Crêpes", "Chocolate"],
+    "premiumFoods": ["Cheese", "Truffles", "Fine chocolate", "Specialty preserves", "Premium mustard"],
+    "exportFriendlyProducts": ["Mustard", "Jams", "Biscuits", "Chocolate", "Tea", "Pantry sauces"],
+    "foodAndCultureNotes": {
+      "regionalDiversity": "Brittany, Provence, Normandy, Alsace, Lyon, Paris, Burgundy, and coastal regions each deserve distinct treatment.",
+      "seasonality": "Markets, produce, cheeses, seafood, and holiday pastries should be explained by season where useful.",
+      "preservationAndTechnique": "Baking, cheesemaking, confit, sauces, preserves, chocolate, and pastry technique support many SEO pages.",
+      "diningCustoms": "Café culture, bakeries, markets, bistros, family meals, and formal dining all provide context.",
+      "historyAndInfluence": "Regional agriculture, court cuisine, trade, technique, and modern restaurant culture shape French food.",
+      "localSpecialties": "Future subpages should cover Normandy dairy, Provence herbs, Brittany crêpes, Alsatian baking, Paris bakeries, and regional cheeses.",
+      "modernFoodScene": "Modern France includes supermarkets, cafés, specialty shops, chef-led restaurants, online gourmet foods, and immigrant food cultures.",
+      "responsibleExplorationNote": "Avoid presenting France as only fine dining; include everyday foods, regional cooking, and pantry products."
     }
   }
 }
