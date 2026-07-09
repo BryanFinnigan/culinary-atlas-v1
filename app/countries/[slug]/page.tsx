@@ -5,6 +5,7 @@ import products from "@/data/products.json";
 type CuisineMap = typeof cuisines;
 type CountryName = keyof CuisineMap;
 type Product = (typeof products)[number];
+type FoodAndCultureNotes = Record<string, string>;
 
 type PageProps = {
   params: {
@@ -80,9 +81,9 @@ export default function CountryPage({ params }: PageProps) {
   const cuisine = cuisines[country];
   const countryProducts = products.filter((product) => product.country === country);
   const collections = groupProductsByCollection(countryProducts);
-  const notes = cuisine.foodAndCultureNotes
-    ? Object.entries(cuisine.foodAndCultureNotes).filter(([, value]) => Boolean(value))
-    : [];
+  const notes = Object.entries(
+    ((cuisine as unknown as { foodAndCultureNotes?: FoodAndCultureNotes }).foodAndCultureNotes ?? {})
+  ).filter(([, value]) => Boolean(value));
 
   return (
     <main className="min-h-screen bg-orange-50 text-slate-950">
