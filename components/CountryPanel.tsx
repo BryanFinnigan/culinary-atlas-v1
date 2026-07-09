@@ -1,5 +1,14 @@
 import type { ReactNode } from "react";
 
+type FoodAndCultureNotes = {
+  regionalDiversity?: string;
+  seasonality?: string;
+  diningCustoms?: string;
+  historyAndInfluence?: string;
+  localSpecialties?: string;
+  modernFoodScene?: string;
+};
+
 type Cuisine = {
   region: string;
   cuisineSummary: string;
@@ -12,6 +21,7 @@ type Cuisine = {
   beginnerFoods: string[];
   premiumFoods: string[];
   exportFriendlyProducts: string[];
+  foodAndCultureNotes?: FoodAndCultureNotes;
 };
 
 type CountryPanelProps = {
@@ -48,6 +58,35 @@ function DetailRow({
       </h3>
       {children}
     </section>
+  );
+}
+
+function CultureNotes({ notes }: { notes?: FoodAndCultureNotes }) {
+  const entries = notes
+    ? Object.entries(notes).filter(([, value]) => Boolean(value))
+    : [];
+
+  if (entries.length === 0) {
+    return (
+      <p className="text-slate-700">
+        This page is a starting point. Culinary Atlas avoids ratings and cultural
+        scorecards; future notes will add regional diversity, seasonality,
+        dining customs, historical influences, and modern food context.
+      </p>
+    );
+  }
+
+  return (
+    <div className="grid gap-3">
+      {entries.map(([key, value]) => (
+        <div key={key} className="rounded-2xl bg-orange-50 p-4">
+          <h4 className="text-sm font-black capitalize tracking-wide text-slate-900">
+            {key.replace(/([A-Z])/g, " $1")}
+          </h4>
+          <p className="mt-2 text-sm leading-6 text-slate-700">{value}</p>
+        </div>
+      ))}
+    </div>
   );
 }
 
@@ -90,6 +129,10 @@ export default function CountryPanel({
 
         <DetailRow title="Dining Traditions">
           <p className="text-slate-700">{cuisine.diningTraditions}</p>
+        </DetailRow>
+
+        <DetailRow title="Food & Culture Notes">
+          <CultureNotes notes={cuisine.foodAndCultureNotes} />
         </DetailRow>
 
         <DetailRow title="Beginner Foods">
