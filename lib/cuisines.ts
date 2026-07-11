@@ -1,6 +1,7 @@
 import cuisines from "@/data/cuisines.json";
 import products from "@/data/productCatalog";
 
+export type ProductRecord = (typeof products)[number];
 export type RawCuisine = (typeof cuisines)[keyof typeof cuisines];
 export type CuisineRecord = RawCuisine & {
   name: string;
@@ -22,6 +23,10 @@ export function slugify(value: string) {
     .replace(/(^-|-$)+/g, "");
 }
 
+export function productSlug(product: ProductRecord) {
+  return slugify(`${product.country}-${product.productName}`);
+}
+
 function continentFromRegion(region: string) {
   if (/africa/i.test(region)) return "Africa";
   if (/asia/i.test(region)) return "Asia";
@@ -30,6 +35,8 @@ function continentFromRegion(region: string) {
   if (/oceania/i.test(region)) return "Oceania";
   return "Global";
 }
+
+export const allProducts = products;
 
 export const allCuisines: CuisineRecord[] = Object.entries(cuisines)
   .map(([name, cuisine]) => {
@@ -79,6 +86,62 @@ export function getRegionBySlug(slug: string) {
 
 export function getProductsForCuisine(name: string) {
   return products.filter((product) => product.country === name);
+}
+
+export function getCollectionsForCuisine(name: string) {
+  return Array.from(
+    new Map(
+      getProductsForCuisine(name).map((product) => [
+        slugify(product.collection || "Taste Collection"),
+        {
+          name: product.collection || "Taste Collection",
+          slug: slugify(product.collection || "Taste Collection"),
+          products: getProductsForCuisine(name).filter(
+            (item) => (item.collection || "Taste Collection") === (product.collection || "Taste Collection")
+          ),
+        },
+      ])
+    ).values()
+  ).sort((a, b) => a.name.localeCompare(b.name));
+}
+
+export function getCollectionForCuisine(countrySlug: string, collectionSlug: string) {
+  const cuisine = getCuisineBySlug(countrySlug);
+  if (!cuisine) return undefined;
+  return getCollectionsForCuisine(cuisine.name).find((collection) => collection.slug === collectionSlug);
+}
+
+export function getCategoriesForCollection(countrySlug: string, collectionSlug: string) {
+  const collection = getCollectionForCuisine(countrySlug, collectionSlug);
+  if (!collection) return [];
+  return Array.from(
+    new Map(
+      collection.products.map((product) => [
+        slugify(product.category || "Products"),
+        {
+          name: product.category || "Products",
+          slug: slugify(product.category || "Products"),
+          products: collection.products.filter(
+            (item) => (item.category || "Products") === (product.category || "Products")
+          ),
+        },
+      ])
+    ).values()
+  ).sort((a, b) => a.name.localeCompare(b.name));
+}
+
+export function getCategoryForCollection(
+  countrySlug: string,
+  collectionSlug: string,
+  categorySlug: string
+) {
+  return getCategoriesForCollection(countrySlug, collectionSlug).find(
+    (category) => category.slug === categorySlug
+  );
+}
+
+export function getProductBySlug(slug: string) {
+  return products.find((product) => productSlug(product) === slug);
 }
 
 export function groupProductsByCollection<T extends { collection?: string }>(items: T[]) {
