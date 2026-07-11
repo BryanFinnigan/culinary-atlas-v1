@@ -7,30 +7,30 @@ export type CountryImageSet = {
 };
 
 /**
- * Country image paths live in data so page components remain generic.
- * To add a country, create /public/images/countries/<slug>/ and add one entry here.
+ * Reusable country image registry. New countries require only a folder and one
+ * data entry; all homepage cards and cuisine-page placements render automatically.
  */
 export const countryImages: Record<string, CountryImageSet> = {
   italy: {
-    hero: "/images/countries/italy/hero.webp",
-    overview: "/images/countries/italy/overview.webp",
-    pantry: "/images/countries/italy/pantry.webp",
-    tools: "/images/countries/italy/tools.webp",
-    regionalMap: "/images/countries/italy/regional-map.webp",
+    hero: "/images/countries/italy/hero.svg",
+    overview: "/images/countries/italy/hero.svg",
+    pantry: "/images/countries/italy/detail.svg",
+    tools: "/images/countries/italy/detail.svg",
+    regionalMap: "/images/countries/italy/regional-map.svg",
   },
   mexico: {
-    hero: "/images/countries/mexico/hero.webp",
-    overview: "/images/countries/mexico/overview.webp",
-    pantry: "/images/countries/mexico/pantry.webp",
-    tools: "/images/countries/mexico/tools.webp",
-    regionalMap: "/images/countries/mexico/regional-map.webp",
+    hero: "/images/countries/mexico/hero.svg",
+    overview: "/images/countries/mexico/hero.svg",
+    pantry: "/images/countries/mexico/detail.svg",
+    tools: "/images/countries/mexico/detail.svg",
+    regionalMap: "/images/countries/mexico/regional-map.svg",
   },
   france: {
-    hero: "/images/countries/france/hero.webp",
-    overview: "/images/countries/france/overview.webp",
-    pantry: "/images/countries/france/pantry.webp",
-    tools: "/images/countries/france/tools.webp",
-    regionalMap: "/images/countries/france/regional-map.webp",
+    hero: "/images/countries/france/hero.svg",
+    overview: "/images/countries/france/hero.svg",
+    pantry: "/images/countries/france/detail.svg",
+    tools: "/images/countries/france/detail.svg",
+    regionalMap: "/images/countries/france/regional-map.svg",
   },
 };
 
