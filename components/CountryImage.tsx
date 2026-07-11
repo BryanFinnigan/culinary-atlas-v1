@@ -35,11 +35,13 @@ export default function CountryImage({
         <div className="absolute inset-x-6 bottom-6 rounded-2xl border border-white/70 bg-white/80 p-4 shadow-sm backdrop-blur">
           <p className="text-xs font-black uppercase tracking-[0.2em] text-orange-700">Culinary Atlas</p>
           <p className="mt-1 text-xl font-black text-slate-950">{country}</p>
-          <p className="mt-1 text-sm text-slate-600">Photography is being prepared for this guide.</p>
+          <p className="mt-1 text-sm text-slate-600">Editorial imagery is being prepared for this guide.</p>
         </div>
       </div>
     );
   }
+
+  const isSvg = src.toLowerCase().endsWith(".svg");
 
   return (
     <div className={`relative overflow-hidden ${aspectClassName} ${className}`}>
@@ -51,6 +53,7 @@ export default function CountryImage({
         loading={priority ? "eager" : "lazy"}
         sizes={sizes}
         className="object-cover"
+        unoptimized={isSvg}
         onError={() => setFailed(true)}
       />
     </div>
