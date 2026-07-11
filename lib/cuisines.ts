@@ -1,5 +1,6 @@
 import cuisines from "@/data/cuisines.json";
 import products from "@/data/productCatalog";
+import { getCountryImages, type CountryImageSet } from "@/data/countryImages";
 
 export type ProductRecord = (typeof products)[number];
 export type RawCuisine = (typeof cuisines)[keyof typeof cuisines];
@@ -13,6 +14,7 @@ export type CuisineRecord = RawCuisine & {
   monetizationStatus: "featured" | "available" | "content-only" | "coming-soon";
   productCount: number;
   relatedCuisines: string[];
+  images: CountryImageSet;
 };
 
 export function slugify(value: string) {
@@ -42,16 +44,18 @@ export const allCuisines: CuisineRecord[] = Object.entries(cuisines)
   .map(([name, cuisine]) => {
     const productCount = products.filter((product) => product.country === name).length;
     const region = cuisine.region;
+    const slug = slugify(name);
     return {
       ...cuisine,
       name,
-      slug: slugify(name),
+      slug,
       regionSlug: slugify(region),
       continent: continentFromRegion(region),
       subregion: region,
       productCount,
       featured: productCount > 0,
       monetizationStatus: productCount > 0 ? "featured" : "content-only",
+      images: getCountryImages(slug),
       relatedCuisines: Object.entries(cuisines)
         .filter(([otherName, otherCuisine]) => otherName !== name && otherCuisine.region === region)
         .slice(0, 6)
