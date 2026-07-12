@@ -4,14 +4,45 @@
 
 :root {
   color-scheme: light;
+  --ivory: #faf7f0;
+  --paper: #fffdf8;
+  --navy: #0d1f33;
+  --navy-soft: #18324d;
+  --gold: #c79a52;
+  --forest: #315f4a;
+  --ink: #172033;
+  --muted: #667085;
+  --line: #e7ddca;
 }
 
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
 body {
   margin: 0;
-  background: #fff8ec;
-  color: #14213d;
+  background: var(--ivory);
+  color: var(--ink);
+  font-family: var(--font-sans), system-ui, sans-serif;
+  text-rendering: optimizeLegibility;
 }
 
-button, input, select {
-  font: inherit;
+h1, h2, h3, .font-serif { font-family: var(--font-serif), Georgia, serif; }
+button, input, select { font: inherit; }
+a { text-underline-offset: 3px; }
+::selection { background: #ead3a8; color: var(--navy); }
+
+.atlas-container { width: min(100% - 2rem, 80rem); margin-inline: auto; }
+.atlas-section { padding-block: clamp(4rem, 8vw, 7.5rem); }
+.atlas-heading { font-family: var(--font-serif), Georgia, serif; font-size: clamp(2.4rem, 5vw, 4.5rem); line-height: .98; letter-spacing: -.035em; color: var(--navy); }
+.atlas-eyebrow { font-size: .78rem; font-weight: 800; letter-spacing: .2em; text-transform: uppercase; color: var(--gold); }
+.atlas-card { border: 1px solid var(--line); border-radius: 1.75rem; background: var(--paper); box-shadow: 0 14px 40px rgba(13,31,51,.07); }
+.atlas-button { min-height: 2.75rem; display: inline-flex; align-items: center; justify-content: center; border-radius: 999px; padding: .7rem 1.2rem; font-weight: 800; transition: transform .2s ease, background .2s ease, color .2s ease, border-color .2s ease; }
+.atlas-button:hover { transform: translateY(-1px); }
+.atlas-button-primary { background: var(--gold); color: var(--navy); }
+.atlas-button-secondary { border: 1px solid var(--line); background: rgba(255,255,255,.75); color: var(--navy); }
+
+.skip-link { position: fixed; left: 1rem; top: -5rem; z-index: 100; border-radius: .5rem; background: white; padding: .75rem 1rem; font-weight: 700; }
+.skip-link:focus { top: 1rem; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; transition-duration: .01ms !important; }
 }
